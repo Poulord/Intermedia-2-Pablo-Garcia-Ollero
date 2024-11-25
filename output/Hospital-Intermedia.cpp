@@ -3,6 +3,8 @@
 #include <vector>
 #include <algorithm> // Necesario para std::find y std::remove
 
+using namespace std;
+
 class Paciente {
 private:
     int id;
@@ -18,15 +20,15 @@ public:
         : id(id), nombre(nombre), edad(edad), hospitalizado(false), telefono(telefono), medicoCabecera("") {}
 
     void mostrarDetalles() const {
-        std::cout << "ID: " << id << "\n"
-                  << "Nombre: " << nombre << "\n"
-                  << "Edad: " << edad << "\n"
-                  << "Teléfono: " << telefono << "\n"
-                  << "Hospitalizado: " << (hospitalizado ? "Sí" : "No") << "\n";
+        cout << "ID: " << id << "\n"
+             << "Nombre: " << nombre << "\n"
+             << "Edad: " << edad << "\n"
+             << "Teléfono: " << telefono << "\n"
+             << "Hospitalizado: " << (hospitalizado ? "Sí" : "No") << "\n";
         if (hospitalizado) {
-            std::cout << "Motivo de ingreso: " << motivoIngreso << "\n";
+            cout << "Motivo de ingreso: " << motivoIngreso << "\n";
         }
-        std::cout << "Médico de cabecera: " << (medicoCabecera.empty() ? "Ninguno" : medicoCabecera) << "\n";
+        cout << "Médico de cabecera: " << (medicoCabecera.empty() ? "Ninguno" : medicoCabecera) << "\n";
     }
 
     void actualizarNombre(const std::string& nuevoNombre) {
@@ -71,13 +73,13 @@ public:
         : id(id), nombre(nombre), especialidad(especialidad), disponible(disponible), aniosExperiencia(aniosExperiencia), telefono(telefono) {}
 
     void mostrarDetalles() const {
-        std::cout << "ID: " << id << "\n"
-                  << "Nombre: " << nombre << "\n"
-                  << "Especialidad: " << especialidad << "\n"
-                  << "Disponible: " << (disponible ? "Sí" : "No") << "\n"
-                  << "Años de experiencia: " << aniosExperiencia << "\n"
-                  << "Teléfono: " << telefono << "\n"
-                  << "Pacientes actuales: " << pacientesActuales.size() << "\n";
+        cout << "ID: " << id << "\n"
+             << "Nombre: " << nombre << "\n"
+             << "Especialidad: " << especialidad << "\n"
+             << "Disponible: " << (disponible ? "Sí" : "No") << "\n"
+             << "Años de experiencia: " << aniosExperiencia << "\n"
+             << "Teléfono: " << telefono << "\n"
+             << "Pacientes actuales: " << pacientesActuales.size() << "\n";
     }
 
     void actualizarEspecialidad(const std::string& nuevaEspecialidad) {
@@ -97,7 +99,7 @@ public:
         if (it != pacientesActuales.end()) {
             pacientesActuales.erase(it);
         } else {
-            std::cout << "El paciente con ID " << pacienteID << " no está asignado a este médico.\n";
+            cout << "El paciente con ID " << pacienteID << " no está asignado a este médico.\n";
         }
     }
 };
@@ -111,7 +113,7 @@ int main() {
     paciente1.ingresarPaciente("Neumonía");
     paciente1.asignarMedicoCabecera("Dra. María López");
 
-    std::cout << "\nDetalles actualizados:\n";
+    cout << "\nDetalles actualizados:\n";
     paciente1.mostrarDetalles();
 
     Medico medico1(101, "Dra. María López", "Cardiología", true, 15, "987-654-321");
@@ -121,11 +123,11 @@ int main() {
     medico1.cambiarDisponibilidad(false);
     medico1.asignarPaciente(1);
 
-    std::cout << "\nDetalles actualizados del médico:\n";
+    cout << "\nDetalles actualizados del médico:\n";
     medico1.mostrarDetalles();
 
     medico1.eliminarPaciente(1);
-    std::cout << "\nDetalles del médico después de eliminar paciente:\n";
+    cout << "\nDetalles del médico después de eliminar paciente:\n";
     medico1.mostrarDetalles();
 
     return 0;
