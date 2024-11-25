@@ -2,21 +2,22 @@
 #include <string>
 #include <vector>
 #include <algorithm> // Necesario para std::find y std::remove
+#include <fstream>   // Necesario para manejo de archivos
 
 using namespace std;
 
 class Paciente {
 private:
     int id;
-    std::string nombre;
+    string nombre;
     int edad;
     bool hospitalizado;
-    std::string motivoIngreso;
-    std::string telefono;
-    std::string medicoCabecera;
+    string motivoIngreso;
+    string telefono;
+    string medicoCabecera;
 
 public:
-    Paciente(int id, const std::string& nombre, int edad, const std::string& telefono)
+    Paciente(int id, const string& nombre, int edad, const string& telefono)
         : id(id), nombre(nombre), edad(edad), hospitalizado(false), telefono(telefono), medicoCabecera("") {}
 
     void mostrarDetalles() const {
@@ -31,104 +32,117 @@ public:
         cout << "Médico de cabecera: " << (medicoCabecera.empty() ? "Ninguno" : medicoCabecera) << "\n";
     }
 
-    void actualizarNombre(const std::string& nuevoNombre) {
-        nombre = nuevoNombre;
-    }
-
-    void actualizarEdad(int nuevaEdad) {
-        edad = nuevaEdad;
-    }
-
-    void asignarMedicoCabecera(const std::string& medico) {
-        medicoCabecera = medico;
-    }
-
-    void ingresarPaciente(const std::string& motivo) {
+    void ingresarPaciente(const string& motivo) {
         hospitalizado = true;
         motivoIngreso = motivo;
     }
 
-    void darAlta() {
-        hospitalizado = false;
-        motivoIngreso = "";
+    void asignarMedicoCabecera(const string& medico) {
+        medicoCabecera = medico;
     }
 
-    bool buscarPorID(int criterioID) const {
-        return id == criterioID;
-    }
-};
-
-class Medico {
-private:
-    int id;
-    std::string nombre;
-    std::string especialidad;
-    bool disponible;
-    int aniosExperiencia;
-    std::string telefono;
-    std::vector<int> pacientesActuales;
-
-public:
-    Medico(int id, const std::string& nombre, const std::string& especialidad, bool disponible, int aniosExperiencia, const std::string& telefono)
-        : id(id), nombre(nombre), especialidad(especialidad), disponible(disponible), aniosExperiencia(aniosExperiencia), telefono(telefono) {}
-
-    void mostrarDetalles() const {
-        cout << "ID: " << id << "\n"
-             << "Nombre: " << nombre << "\n"
-             << "Especialidad: " << especialidad << "\n"
-             << "Disponible: " << (disponible ? "Sí" : "No") << "\n"
-             << "Años de experiencia: " << aniosExperiencia << "\n"
-             << "Teléfono: " << telefono << "\n"
-             << "Pacientes actuales: " << pacientesActuales.size() << "\n";
+    void guardarEnArchivo(ofstream& archivo) const {
+        archivo << id << "," << nombre << "," << edad << "," << hospitalizado << ","
+                << motivoIngreso << "," << telefono << "," << medicoCabecera << "\n";
     }
 
-    void actualizarEspecialidad(const std::string& nuevaEspecialidad) {
-        especialidad = nuevaEspecialidad;
-    }
+    static Paciente cargarDeArchivo(ifstream& archivo) {
+        int id;
+        string nombre;
+        int edad;
+        bool hospitalizado;
+        string motivoIngreso;
+        string telefono;
+        string medicoCabecera;
 
-    void cambiarDisponibilidad(bool nuevaDisponibilidad) {
-        disponible = nuevaDisponibilidad;
-    }
-
-    void asignarPaciente(int pacienteID) {
-        pacientesActuales.push_back(pacienteID);
-    }
-
-    void eliminarPaciente(int pacienteID) {
-        auto it = std::find(pacientesActuales.begin(), pacientesActuales.end(), pacienteID);
-        if (it != pacientesActuales.end()) {
-            pacientesActuales.erase(it);
-        } else {
-            cout << "El paciente con ID " << pacienteID << " no está asignado a este médico.\n";
+        string linea;
+        if (getline(archivo, linea)) {
+            size_t pos = 0;
+            pos = linea.find(","); id = stoi(linea.substr(0, pos)); linea.erase(0, pos + 1);
+            pos = linea.find(","); nombre = linea.substr(0, pos); linea.erase(0, pos + 1);
+            pos = linea.find(","); edad = stoi(linea.substr(0, pos)); linea.erase(0, pos + 1);
+            pos = linea.find(","); hospitalizado = stoi(linea.substr(0, pos)); linea.erase(0, pos + 1);
+            pos = linea.find(","); motivoIngreso = linea.substr(0, pos); linea.erase(0, pos + 1);
+            pos = linea.find(","); telefono = linea.substr(0, pos); linea.erase(0, pos + 1);
+            medicoCabecera = linea;
         }
+
+        return Paciente(id, nombre, edad, telefono);
     }
 };
+
+void mostrarMenu() {
+    cout << "\n--- Menu Principal ---\n";
+    cout << "1. Agregar paciente\n";
+    cout << "2. Ver pacientes desde archivo\n";
+    cout << "3. Salir\n";
+    cout << "Seleccione una opción: ";
+}
 
 int main() {
-    Paciente paciente1(1, "Juan Perez", 30, "123-456-789");
-    paciente1.mostrarDetalles();
+    vector<Paciente> pacientes;
+    string archivoPacientes = "pacientes.txt";
+    int opcion;
 
-    paciente1.actualizarNombre("Juan Gómez");
-    paciente1.actualizarEdad(35);
-    paciente1.ingresarPaciente("Neumonía");
-    paciente1.asignarMedicoCabecera("Dra. María López");
+    do {
+        mostrarMenu();
+        cin >> opcion;
+        cin.ignore(); // Limpiar el buffer de entrada
 
-    cout << "\nDetalles actualizados:\n";
-    paciente1.mostrarDetalles();
+        if (opcion == 1) {
+            // Agregar un paciente
+            int id, edad;
+            string nombre, telefono, motivo, medico;
 
-    Medico medico1(101, "Dra. María López", "Cardiología", true, 15, "987-654-321");
-    medico1.mostrarDetalles();
+            cout << "Ingrese ID del paciente: ";
+            cin >> id;
+            cin.ignore();
+            cout << "Ingrese nombre del paciente: ";
+            getline(cin, nombre);
+            cout << "Ingrese edad del paciente: ";
+            cin >> edad;
+            cin.ignore();
+            cout << "Ingrese teléfono del paciente: ";
+            getline(cin, telefono);
+            cout << "Ingrese motivo de ingreso: ";
+            getline(cin, motivo);
+            cout << "Ingrese médico de cabecera: ";
+            getline(cin, medico);
 
-    medico1.actualizarEspecialidad("Neurología");
-    medico1.cambiarDisponibilidad(false);
-    medico1.asignarPaciente(1);
+            Paciente nuevoPaciente(id, nombre, edad, telefono);
+            nuevoPaciente.ingresarPaciente(motivo);
+            nuevoPaciente.asignarMedicoCabecera(medico);
+            pacientes.push_back(nuevoPaciente);
 
-    cout << "\nDetalles actualizados del médico:\n";
-    medico1.mostrarDetalles();
+            // Guardar en archivo
+            ofstream archivoSalida(archivoPacientes, ios::app);
+            if (archivoSalida.is_open()) {
+                nuevoPaciente.guardarEnArchivo(archivoSalida);
+                archivoSalida.close();
+                cout << "Paciente guardado en el archivo.\n";
+            } else {
+                cout << "Error al abrir el archivo para guardar.\n";
+            }
+        } else if (opcion == 2) {
+            // Ver pacientes desde archivo
+            ifstream archivoEntrada(archivoPacientes);
+            if (archivoEntrada.is_open()) {
+                cout << "\n--- Lista de Pacientes ---\n";
+                while (!archivoEntrada.eof()) {
+                    Paciente p = Paciente::cargarDeArchivo(archivoEntrada);
+                    if (archivoEntrada.eof()) break; // Evitar imprimir paciente vacío
+                    p.mostrarDetalles();
+                    cout << "--------------------\n";
+                }
+                archivoEntrada.close();
+            } else {
+                cout << "No se pudo abrir el archivo para lectura.\n";
+            }
+        } else if (opcion != 3) {
+            cout << "Opción no válida. Intente nuevamente.\n";
+        }
+    } while (opcion != 3);
 
-    medico1.eliminarPaciente(1);
-    cout << "\nDetalles del médico después de eliminar paciente:\n";
-    medico1.mostrarDetalles();
-
+    cout << "Programa terminado.\n";
     return 0;
 }
