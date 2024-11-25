@@ -1,34 +1,56 @@
 #include <iostream>
 #include <string>
+#include <vector>
+#include <algorithm> // Necesario para std::find y std::remove
 
 class Paciente {
 private:
     int id;
     std::string nombre;
     int edad;
+    bool hospitalizado;
+    std::string motivoIngreso;
+    std::string telefono;
+    std::string medicoCabecera;
 
 public:
-    // Constructor
-    Paciente(int id, const std::string& nombre, int edad) : id(id), nombre(nombre), edad(edad) {}
+    Paciente(int id, const std::string& nombre, int edad, const std::string& telefono)
+        : id(id), nombre(nombre), edad(edad), hospitalizado(false), telefono(telefono), medicoCabecera("") {}
 
-    // Método para mostrar detalles del paciente
     void mostrarDetalles() const {
         std::cout << "ID: " << id << "\n"
                   << "Nombre: " << nombre << "\n"
-                  << "Edad: " << edad << "\n";
+                  << "Edad: " << edad << "\n"
+                  << "Teléfono: " << telefono << "\n"
+                  << "Hospitalizado: " << (hospitalizado ? "Sí" : "No") << "\n";
+        if (hospitalizado) {
+            std::cout << "Motivo de ingreso: " << motivoIngreso << "\n";
+        }
+        std::cout << "Médico de cabecera: " << (medicoCabecera.empty() ? "Ninguno" : medicoCabecera) << "\n";
     }
 
-    // Método para actualizar el nombre del paciente
     void actualizarNombre(const std::string& nuevoNombre) {
         nombre = nuevoNombre;
     }
 
-    // Método para actualizar la edad del paciente
     void actualizarEdad(int nuevaEdad) {
         edad = nuevaEdad;
     }
 
-    // Método para buscar paciente por ID
+    void asignarMedicoCabecera(const std::string& medico) {
+        medicoCabecera = medico;
+    }
+
+    void ingresarPaciente(const std::string& motivo) {
+        hospitalizado = true;
+        motivoIngreso = motivo;
+    }
+
+    void darAlta() {
+        hospitalizado = false;
+        motivoIngreso = "";
+    }
+
     bool buscarPorID(int criterioID) const {
         return id == criterioID;
     }
@@ -40,69 +62,70 @@ private:
     std::string nombre;
     std::string especialidad;
     bool disponible;
+    int aniosExperiencia;
+    std::string telefono;
+    std::vector<int> pacientesActuales;
 
 public:
-    // Constructor
-    Medico(int id, const std::string& nombre, const std::string& especialidad, bool disponible)
-        : id(id), nombre(nombre), especialidad(especialidad), disponible(disponible) {}
+    Medico(int id, const std::string& nombre, const std::string& especialidad, bool disponible, int aniosExperiencia, const std::string& telefono)
+        : id(id), nombre(nombre), especialidad(especialidad), disponible(disponible), aniosExperiencia(aniosExperiencia), telefono(telefono) {}
 
-    // Método para mostrar detalles del médico
     void mostrarDetalles() const {
         std::cout << "ID: " << id << "\n"
                   << "Nombre: " << nombre << "\n"
                   << "Especialidad: " << especialidad << "\n"
-                  << "Disponible: " << (disponible ? "Sí" : "No") << "\n";
+                  << "Disponible: " << (disponible ? "Sí" : "No") << "\n"
+                  << "Años de experiencia: " << aniosExperiencia << "\n"
+                  << "Teléfono: " << telefono << "\n"
+                  << "Pacientes actuales: " << pacientesActuales.size() << "\n";
     }
 
-    // Método para actualizar la especialidad del médico
     void actualizarEspecialidad(const std::string& nuevaEspecialidad) {
         especialidad = nuevaEspecialidad;
     }
 
-    // Método para cambiar la disponibilidad del médico
     void cambiarDisponibilidad(bool nuevaDisponibilidad) {
         disponible = nuevaDisponibilidad;
+    }
+
+    void asignarPaciente(int pacienteID) {
+        pacientesActuales.push_back(pacienteID);
+    }
+
+    void eliminarPaciente(int pacienteID) {
+        auto it = std::find(pacientesActuales.begin(), pacientesActuales.end(), pacienteID);
+        if (it != pacientesActuales.end()) {
+            pacientesActuales.erase(it);
+        } else {
+            std::cout << "El paciente con ID " << pacienteID << " no está asignado a este médico.\n";
+        }
     }
 };
 
 int main() {
-    // Crear un paciente de ejemplo
-    Paciente paciente1(1, "Juan Perez", 30);
-
-    // Mostrar detalles del paciente
+    Paciente paciente1(1, "Juan Perez", 30, "123-456-789");
     paciente1.mostrarDetalles();
 
-    // Actualizar el nombre y la edad del paciente
     paciente1.actualizarNombre("Juan Gómez");
     paciente1.actualizarEdad(35);
+    paciente1.ingresarPaciente("Neumonía");
+    paciente1.asignarMedicoCabecera("Dra. María López");
 
-    // Mostrar detalles actualizados del paciente
     std::cout << "\nDetalles actualizados:\n";
     paciente1.mostrarDetalles();
 
-    // Buscar al paciente por ID
-    int criterioID = 1;
-    if (paciente1.buscarPorID(criterioID)) {
-        std::cout << "\nPaciente encontrado con ID: " << criterioID << "\n";
-    } else {
-        std::cout << "\nNo se encontró ningún paciente con ID: " << criterioID << "\n";
-    }
-
-    // Crear un médico de ejemplo
-    Medico medico1(101, "Dra. María López", "Cardiología", true);
-
-    // Mostrar detalles del médico
-    std::cout << "\nDetalles del médico:\n";
+    Medico medico1(101, "Dra. María López", "Cardiología", true, 15, "987-654-321");
     medico1.mostrarDetalles();
 
-    // Actualizar la especialidad del médico
     medico1.actualizarEspecialidad("Neurología");
-
-    // Cambiar la disponibilidad del médico
     medico1.cambiarDisponibilidad(false);
+    medico1.asignarPaciente(1);
 
-    // Mostrar detalles actualizados del médico
     std::cout << "\nDetalles actualizados del médico:\n";
+    medico1.mostrarDetalles();
+
+    medico1.eliminarPaciente(1);
+    std::cout << "\nDetalles del médico después de eliminar paciente:\n";
     medico1.mostrarDetalles();
 
     return 0;
