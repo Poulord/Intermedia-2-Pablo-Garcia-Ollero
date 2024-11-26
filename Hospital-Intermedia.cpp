@@ -345,112 +345,119 @@ int main()
         cin >> opcion;
         cin.ignore();
 
-        switch (opcion) {
-            case 1: {
-                int id, edad;
-                string nombre, telefono, motivo, medico;
+        switch (opcion)
+        {
+        case 1:
+        {
+            int id, edad;
+            string nombre, telefono, motivo, medico;
 
-                cout << "Ingrese ID del paciente: ";
-                cin >> id;
-                cin.ignore();
-                cout << "Ingrese nombre del paciente: ";
-                getline(cin, nombre);
-                cout << "Ingrese edad del paciente: ";
-                cin >> edad;
-                cin.ignore();
-                cout << "Ingrese teléfono del paciente: ";
-                getline(cin, telefono);
-                cout << "Ingrese motivo de ingreso: ";
-                getline(cin, motivo);
-                cout << "Ingrese médico de cabecera: ";
-                getline(cin, medico);
+            cout << "Ingrese ID del paciente: ";
+            cin >> id;
+            cin.ignore();
+            cout << "Ingrese nombre del paciente: ";
+            getline(cin, nombre);
+            cout << "Ingrese edad del paciente: ";
+            cin >> edad;
+            cin.ignore();
+            cout << "Ingrese teléfono del paciente: ";
+            getline(cin, telefono);
+            cout << "Ingrese motivo de ingreso: ";
+            getline(cin, motivo);
+            cout << "Ingrese médico de cabecera: ";
+            getline(cin, medico);
 
-                Paciente nuevoPaciente(id, nombre, edad, telefono);
-                nuevoPaciente.ingresarPaciente(motivo);
-                nuevoPaciente.asignarMedicoCabecera(medico);
-                nuevoPaciente.guardarEnArchivo("pacientes.txt");
-                cout << "Paciente registrado exitosamente.\n";
-                break;
-            }
-            case 2:
-                mostrarContenidoDesdeArchivo("pacientes.txt");
-                break;
-            case 3: {
-                int id, aniosExperiencia;
-                string nombre, especialidad;
-                bool disponible;
-                cout << "Ingrese ID: ";
-                cin >> id;
-                cin.ignore();
-                cout << "Ingrese Nombre: ";
-                getline(cin, nombre);
-                cout << "Ingrese Especialidad: ";
-                getline(cin, especialidad);
-                cout << "Está disponible (1: Sí, 0: No): ";
-                cin >> disponible;
-                cout << "Ingrese Años de experiencia: ";
-                cin >> aniosExperiencia;
+            Paciente nuevoPaciente(id, nombre, edad, telefono);
+            nuevoPaciente.ingresarPaciente(motivo);
+            nuevoPaciente.asignarMedicoCabecera(medico);
+            nuevoPaciente.guardarEnArchivo("pacientes.txt");
+            cout << "Paciente registrado exitosamente.\n";
+            break;
+        }
+        case 2:
+            mostrarContenidoDesdeArchivo("pacientes.txt");
+            break;
+        case 3:
+        {
+            int id, aniosExperiencia;
+            string nombre, especialidad;
+            bool disponible;
+            cout << "Ingrese ID: ";
+            cin >> id;
+            cin.ignore();
+            cout << "Ingrese Nombre: ";
+            getline(cin, nombre);
+            cout << "Ingrese Especialidad: ";
+            getline(cin, especialidad);
+            cout << "Está disponible (1: Sí, 0: No): ";
+            cin >> disponible;
+            cout << "Ingrese Años de experiencia: ";
+            cin >> aniosExperiencia;
 
-                Medico nuevoMedico(id, nombre, especialidad, disponible, aniosExperiencia);
-                nuevoMedico.guardarEnArchivo("medicos.txt");
-                cout << "Médico registrado exitosamente.\n";
-                break;
- }
-            case 4:
-                mostrarContenidoDesdeArchivo("medicos.txt");
-                break;
-            case 5: {
-                int id, prioridad, idPaciente, idMedico;
-                string fechaHora;
+            Medico nuevoMedico(id, nombre, especialidad, disponible, aniosExperiencia);
+            nuevoMedico.guardarEnArchivo("medicos.txt");
+            cout << "Médico registrado exitosamente.\n";
+            break;
+        }
+        case 4:
+            mostrarContenidoDesdeArchivo("medicos.txt");
+            break;
+        case 5:
+        {
+            int id, prioridad, idPaciente, idMedico;
+            string fechaHora;
 
-                cout << "Ingrese ID de la cita: ";
-                cin >> id;
-                cin.ignore();
-                cout << "Ingrese fecha y hora de la cita: ";
-                getline(cin, fechaHora);
-                cout << "Ingrese prioridad (1: Alta, 2: Media, 3: Baja): ";
-                cin >> prioridad;
-                cout << "Ingrese ID del paciente: ";
-                cin >> idPaciente;
-                cout << "Ingrese ID del médico: ";
-                cin >> idMedico;
+            cout << "Ingrese ID de la cita: ";
+            cin >> id;
+            cin.ignore();
+            cout << "Ingrese fecha y hora de la cita: ";
+            getline(cin, fechaHora);
+            cout << "Ingrese prioridad (1: Alta, 2: Media, 3: Baja): ";
+            cin >> prioridad;
+            cout << "Ingrese ID del paciente: ";
+            cin >> idPaciente;
+            cout << "Ingrese ID del médico: ";
+            cin >> idMedico;
 
-                CitaMedica nuevaCita(id, fechaHora, prioridad, idPaciente, idMedico);
-                nuevaCita.guardarEnArchivo("citas.txt");
-                cout << "Cita médica registrada exitosamente.\n";
-                break;
-            }
-            case 6:
-                mostrarContenidoDesdeArchivo("citas.txt");
-                break;
-            case 7: {
-                cout << "Ingrese el nombre del paciente a modificar: ";
-                string nombre;
-                getline(cin, nombre);
-                modificarPacienteEnArchivo("pacientes.txt", nombre);
-                break;
-            }
-            case 8: {
-                cout << "Ingrese el nombre del médico a modificar: ";
-                string nombre;
-                getline(cin, nombre);
-                modificarMedicoEnArchivo("medicos.txt", nombre);
-                break;
-            }
-            case 9: {
-                cout << "Ingrese el ID de la cita a modificar: ";
-                int id;
-                cin >> id;
-                cin.ignore();
-                modificarCitaEnArchivo("citas.txt", id);
-                break;
-            }
-            case 0:
-                cout << "Saliendo del programa...\n";
-                break;
-            default:
-                cout << "Opción no válida. Intente de nuevo.\n";
-                break;
+            CitaMedica nuevaCita(id, fechaHora, prioridad, idPaciente, idMedico);
+            nuevaCita.guardarEnArchivo("citas.txt");
+            cout << "Cita médica registrada exitosamente.\n";
+            break;
+        }
+        case 6:
+            mostrarContenidoDesdeArchivo("citas.txt");
+            break;
+        case 7:
+        {
+            cout << "Ingrese el nombre del paciente a modificar: ";
+            string nombre;
+            getline(cin, nombre);
+            modificarPacienteEnArchivo("pacientes.txt", nombre);
+            break;
+        }
+        case 8:
+        {
+            cout << "Ingrese el nombre del médico a modificar: ";
+            string nombre;
+            getline(cin, nombre);
+            modificarMedicoEnArchivo("medicos.txt", nombre);
+            break;
+        }
+        case 9:
+        {
+            cout << "Ingrese el ID de la cita a modificar: ";
+            int id;
+            cin >> id;
+            cin.ignore();
+            modificarCitaEnArchivo("citas.txt", id);
+            break;
+        }
+        case 0:
+            cout << "Saliendo del programa...\n";
+            break;
+        default:
+            cout << "Opción no válida. Intente de nuevo.\n";
+            break;
         }
     } while (opcion != 0);
 

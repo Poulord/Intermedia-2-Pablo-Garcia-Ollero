@@ -15,3 +15,11 @@ Hospitalizado: Sí
 Motivo de ingreso: 
 Médico de cabecera: Rebeca
 
+Paciente 12
+Nombre: Juan Jose Garcia Ferrer
+Edad: 59
+Teléfono: 648587123
+Hospitalizado: Sí
+Motivo de ingreso: Dolor de oidos
+Médico de cabecera: Marta
+
