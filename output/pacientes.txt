@@ -1,8 +1,17 @@
 Paciente 12
 Nombre: Pablo Garcia
-Edad: 19
+Edad: 90
+Teléfono: 315135135
 Teléfono: 1245
 Hospitalizado: Sí
 Motivo de ingreso: MAL ESTAR
 Médico de cabecera: Marta
+
+Paciente 20
+Nombre: David Lanchero Ipus
+Edad: 20
+Teléfono: 43235626
+Hospitalizado: Sí
+Motivo de ingreso: 
+Médico de cabecera: Rebeca
 

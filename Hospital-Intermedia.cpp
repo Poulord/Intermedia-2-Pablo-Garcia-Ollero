@@ -6,7 +6,8 @@
 
 using namespace std;
 
-class Paciente {
+class Paciente
+{
 private:
     int id;
     string nombre;
@@ -17,35 +18,41 @@ private:
     string medicoCabecera;
 
 public:
-    Paciente(int id, const string& nombre, int edad, const string& telefono)
+    Paciente(int id, const string &nombre, int edad, const string &telefono)
         : id(id), nombre(nombre), edad(edad), hospitalizado(false), telefono(telefono), medicoCabecera("") {}
 
     int getId() const { return id; }
 
-    void mostrarDetalles() const {
+    void mostrarDetalles() const
+    {
         cout << "ID: " << id << "\n"
              << "Nombre: " << nombre << "\n"
              << "Edad: " << edad << "\n"
              << "Teléfono: " << telefono << "\n"
              << "Hospitalizado: " << (hospitalizado ? "Sí" : "No") << "\n";
-        if (hospitalizado) {
+        if (hospitalizado)
+        {
             cout << "Motivo de ingreso: " << motivoIngreso << "\n";
         }
         cout << "Médico de cabecera: " << (medicoCabecera.empty() ? "Ninguno" : medicoCabecera) << "\n";
     }
 
-    void ingresarPaciente(const string& motivo) {
+    void ingresarPaciente(const string &motivo)
+    {
         hospitalizado = true;
         motivoIngreso = motivo;
     }
 
-    void asignarMedicoCabecera(const string& medico) {
+    void asignarMedicoCabecera(const string &medico)
+    {
         medicoCabecera = medico;
     }
 
-    void guardarEnArchivo(const string& archivo) const {
+    void guardarEnArchivo(const string &archivo) const
+    {
         ofstream file(archivo, ios::app);
-        if (!file) {
+        if (!file)
+        {
             cerr << "Error al abrir el archivo: " << archivo << endl;
             return;
         }
@@ -54,14 +61,68 @@ public:
         file << "Edad: " << edad << "\n";
         file << "Teléfono: " << telefono << "\n";
         file << "Hospitalizado: " << (hospitalizado ? "Sí" : "No") << "\n";
-        if (hospitalizado) {
+        if (hospitalizado)
+        {
             file << "Motivo de ingreso: " << motivoIngreso << "\n";
         }
         file << "Médico de cabecera: " << (medicoCabecera.empty() ? "Ninguno" : medicoCabecera) << "\n\n";
     }
 };
 
-class Medico {
+// Modificar medicos
+void modificarPacienteEnArchivo(const string &archivo, const string &nombrePaciente)
+{
+    ifstream fileIn(archivo);
+    ofstream fileOut("temp.txt");
+    if (!fileIn || !fileOut)
+    {
+        cerr << "Error al abrir los archivos para modificar.\n";
+        return;
+    }
+
+    string linea, nombreActual;
+    bool encontrado = false;
+
+    while (getline(fileIn, linea))
+    {
+        if (linea.find("Nombre: ") != string::npos)
+        {
+            nombreActual = linea.substr(8); // Capturar el nombre del paciente
+            if (nombreActual == nombrePaciente)
+            {
+                encontrado = true;
+                cout << "Paciente encontrado. Modifique los datos:\n";
+                cout << "Ingrese nueva edad: ";
+                int nuevaEdad;
+                cin >> nuevaEdad;
+                cin.ignore();
+                cout << "Ingrese nuevo teléfono: ";
+                string nuevoTelefono;
+                getline(cin, nuevoTelefono);
+
+                fileOut << linea << '\n';
+                fileOut << "Edad: " << nuevaEdad << '\n';
+                fileOut << "Teléfono: " << nuevoTelefono << '\n';
+                getline(fileIn, linea); // Saltar línea de edad original
+                getline(fileIn, linea); // Saltar línea de teléfono original
+            }
+        }
+        fileOut << linea << '\n';
+    }
+
+    fileIn.close();
+    fileOut.close();
+    remove(archivo.c_str());
+    rename("temp.txt", archivo.c_str());
+
+    if (!encontrado)
+    {
+        cout << "Paciente con nombre " << nombrePaciente << " no encontrado.\n";
+    }
+}
+
+class Medico
+{
 private:
     int id;
     string nombre;
@@ -70,12 +131,13 @@ private:
     int aniosExperiencia;
 
 public:
-    Medico(int id, const string& nombre, const string& especialidad, bool disponible, int aniosExperiencia)
+    Medico(int id, const string &nombre, const string &especialidad, bool disponible, int aniosExperiencia)
         : id(id), nombre(nombre), especialidad(especialidad), disponible(disponible), aniosExperiencia(aniosExperiencia) {}
 
     int getId() const { return id; }
 
-    void mostrarDetalles() const {
+    void mostrarDetalles() const
+    {
         cout << "ID: " << id << "\n"
              << "Nombre: " << nombre << "\n"
              << "Especialidad: " << especialidad << "\n"
@@ -83,9 +145,11 @@ public:
              << "Años de experiencia: " << aniosExperiencia << "\n";
     }
 
-    void guardarEnArchivo(const string& archivo) const {
+    void guardarEnArchivo(const string &archivo) const
+    {
         ofstream file(archivo, ios::app);
-        if (!file) {
+        if (!file)
+        {
             cerr << "Error al abrir el archivo: " << archivo << endl;
             return;
         }
@@ -97,7 +161,60 @@ public:
     }
 };
 
-class CitaMedica {
+// Modificar medico
+void modificarMedicoEnArchivo(const string &archivo, const string &nombreMedico)
+{
+    ifstream fileIn(archivo);
+    ofstream fileOut("temp.txt");
+    if (!fileIn || !fileOut)
+    {
+        cerr << "Error al abrir los archivos para modificar.\n";
+        return;
+    }
+
+    string linea, nombreActual;
+    bool encontrado = false;
+
+    while (getline(fileIn, linea))
+    {
+        if (linea.find("Nombre: ") != string::npos)
+        {
+            nombreActual = linea.substr(8); // Capturar el nombre del médico
+            if (nombreActual == nombreMedico)
+            {
+                encontrado = true;
+                cout << "Médico encontrado. Modifique los datos:\n";
+                cout << "Ingrese nueva especialidad: ";
+                string nuevaEspecialidad;
+                getline(cin, nuevaEspecialidad);
+                cout << "¿Está disponible? (1: Sí, 0: No): ";
+                bool nuevaDisponibilidad;
+                cin >> nuevaDisponibilidad;
+                cin.ignore();
+
+                fileOut << linea << '\n';
+                fileOut << "Especialidad: " << nuevaEspecialidad << '\n';
+                fileOut << "Disponible: " << (nuevaDisponibilidad ? "Sí" : "No") << '\n';
+                getline(fileIn, linea); // Saltar línea de especialidad original
+                getline(fileIn, linea); // Saltar línea de disponibilidad original
+            }
+        }
+        fileOut << linea << '\n';
+    }
+
+    fileIn.close();
+    fileOut.close();
+    remove(archivo.c_str());
+    rename("temp.txt", archivo.c_str());
+
+    if (!encontrado)
+    {
+        cout << "Médico con nombre " << nombreMedico << " no encontrado.\n";
+    }
+}
+
+class CitaMedica
+{
 private:
     int id;
     string fechaHora;
@@ -106,21 +223,23 @@ private:
     int idMedico;
 
 public:
-    CitaMedica(int id, const string& fechaHora, int prioridad, int idPaciente, int idMedico)
+    CitaMedica(int id, const string &fechaHora, int prioridad, int idPaciente, int idMedico)
         : id(id), fechaHora(fechaHora), prioridad(prioridad), idPaciente(idPaciente), idMedico(idMedico) {}
 
-    void mostrarDetalles() const {
+    void mostrarDetalles() const
+    {
         cout << "ID de Cita: " << id << "\n"
              << "Fecha y Hora: " << fechaHora << "\n"
-             << "Prioridad: " << (prioridad == 1 ? "Alta" : (prioridad == 2 ? "Media"
-             : "Baja")) << "\n"
+             << "Prioridad: " << (prioridad == 1 ? "Alta" : (prioridad == 2 ? "Media" : "Baja")) << "\n"
              << "ID Paciente: " << idPaciente << "\n"
              << "ID Médico: " << idMedico << "\n";
     }
 
-    void guardarEnArchivo(const string& archivo) const {
+    void guardarEnArchivo(const string &archivo) const
+    {
         ofstream file(archivo, ios::app);
-        if (!file) {
+        if (!file)
+        {
             cerr << "Error al abrir el archivo: " << archivo << endl;
             return;
         }
@@ -132,35 +251,96 @@ public:
     }
 };
 
-void mostrarMenu() {
+// Modificar citas
+void modificarCitaEnArchivo(const string &archivo, int idCita)
+{
+    ifstream fileIn(archivo);
+    ofstream fileOut("temp.txt");
+    if (!fileIn || !fileOut)
+    {
+        cerr << "Error al abrir los archivos para modificar.\n";
+        return;
+    }
+
+    string linea;
+    bool encontrado = false;
+
+    while (getline(fileIn, linea))
+    {
+        if (linea.find("Cita ") != string::npos)
+        {
+            int idActual = stoi(linea.substr(5)); // Capturar el ID de la cita
+            if (idActual == idCita)
+            {
+                encontrado = true;
+                cout << "Cita encontrada. Modifique los datos:\n";
+                cout << "Ingrese nueva fecha y hora: ";
+                string nuevaFechaHora;
+                getline(cin, nuevaFechaHora);
+                cout << "Ingrese nueva prioridad (1: Alta, 2: Media, 3: Baja): ";
+                int nuevaPrioridad;
+                cin >> nuevaPrioridad;
+                cin.ignore();
+
+                fileOut << linea << '\n';
+                fileOut << "Fecha y Hora: " << nuevaFechaHora << '\n';
+                fileOut << "Prioridad: " << (nuevaPrioridad == 1 ? "Alta" : (nuevaPrioridad == 2 ? "Media" : "Baja")) << '\n';
+                getline(fileIn, linea); // Saltar línea de fecha y hora original
+                getline(fileIn, linea); // Saltar línea de prioridad original
+            }
+        }
+        fileOut << linea << '\n';
+    }
+
+    fileIn.close();
+    fileOut.close();
+    remove(archivo.c_str());
+    rename("temp.txt", archivo.c_str());
+
+    if (!encontrado)
+    {
+        cout << "Cita con ID " << idCita << " no encontrada.\n";
+    }
+}
+
+void mostrarMenu()
+{
     cout << "1. Agregar Paciente\n"
          << "2. Ver Pacientes Registrados\n"
          << "3. Agregar Médico\n"
          << "4. Ver Médicos Registrados\n"
          << "5. Agregar Cita Médica\n"
          << "6. Ver Citas Médicas\n"
-         << "7. Salir\n"
+         << "7. Modificar Paciente\n"
+         << "8. Modificar Medico\n"
+         << "9. Modificar cita\n"
+         << "0. Salir\n"
          << "Seleccione una opción: ";
 }
 
-void mostrarContenidoDesdeArchivo(const string& archivo) {
+void mostrarContenidoDesdeArchivo(const string &archivo)
+{
     ifstream file(archivo);
-    if (!file) {
+    if (!file)
+    {
         cerr << "Error al abrir el archivo: " << archivo << endl;
         return;
     }
 
     cout << "\n--- Contenido de " << archivo << " ---\n";
     string linea;
-    while (getline(file, linea)) {
+    while (getline(file, linea))
+    {
         cout << linea << endl;
     }
     cout << "--------------------\n";
 }
 
-int main() {
+int main()
+{
     int opcion;
-    do {
+    do
+    {
         mostrarMenu();
         cin >> opcion;
         cin.ignore();
@@ -215,7 +395,7 @@ int main() {
                 nuevoMedico.guardarEnArchivo("medicos.txt");
                 cout << "Médico registrado exitosamente.\n";
                 break;
-            }
+ }
             case 4:
                 mostrarContenidoDesdeArchivo("medicos.txt");
                 break;
@@ -243,14 +423,36 @@ int main() {
             case 6:
                 mostrarContenidoDesdeArchivo("citas.txt");
                 break;
-            case 7:
+            case 7: {
+                cout << "Ingrese el nombre del paciente a modificar: ";
+                string nombre;
+                getline(cin, nombre);
+                modificarPacienteEnArchivo("pacientes.txt", nombre);
+                break;
+            }
+            case 8: {
+                cout << "Ingrese el nombre del médico a modificar: ";
+                string nombre;
+                getline(cin, nombre);
+                modificarMedicoEnArchivo("medicos.txt", nombre);
+                break;
+            }
+            case 9: {
+                cout << "Ingrese el ID de la cita a modificar: ";
+                int id;
+                cin >> id;
+                cin.ignore();
+                modificarCitaEnArchivo("citas.txt", id);
+                break;
+            }
+            case 0:
                 cout << "Saliendo del programa...\n";
                 break;
             default:
                 cout << "Opción no válida. Intente de nuevo.\n";
                 break;
         }
-    } while (opcion != 7);
+    } while (opcion != 0);
 
     return 0;
 }

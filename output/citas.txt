@@ -4,3 +4,9 @@ Prioridad: Media
 ID Paciente: 1
 ID Médico: 5
 
+Cita 7
+Fecha y Hora: 3 de diciembre 2024 12:40
+Prioridad: Baja
+ID Paciente: 1
+ID Médico: 5
+
