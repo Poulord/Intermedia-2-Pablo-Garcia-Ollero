@@ -1,0 +1,8 @@
+Paciente 12
+Nombre: Pablo Garcia
+Edad: 19
+Teléfono: 1245
+Hospitalizado: Sí
+Motivo de ingreso: MAL ESTAR
+Médico de cabecera: Marta
+
