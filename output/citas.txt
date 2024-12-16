@@ -10,3 +10,9 @@ Prioridad: Baja
 ID Paciente: 1
 ID Médico: 5
 
+Cita 13
+Fecha y Hora: 28 de Noveimbre 18:15 pm
+Prioridad: Alta
+ID Paciente: 1
+ID Médico: 5
+

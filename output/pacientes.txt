@@ -1,6 +1,7 @@
 Paciente 12
 Nombre: Pablo Garcia
-Edad: 90
+Edad: 20
+Teléfono: 141115
 Teléfono: 315135135
 Teléfono: 1245
 Hospitalizado: Sí
@@ -22,4 +23,13 @@ Teléfono: 648587123
 Hospitalizado: Sí
 Motivo de ingreso: Dolor de oidos
 Médico de cabecera: Marta
+
+Paciente 123
+Nombre: Roberto
+Edad: 19
+Teléfono: 1111
+Teléfono: 141
+Hospitalizado: Sí
+Motivo de ingreso: Dolor de cabeza
+Médico de cabecera: Vanesa
 

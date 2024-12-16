@@ -6,6 +6,12 @@
 
 using namespace std;
 
+#include "pacientes.cpp"
+#include "medicos.cpp"
+#include "cita_medica.cpp"
+
+/*
+
 class Paciente
 {
 private:
@@ -69,7 +75,8 @@ public:
     }
 };
 
-// Modificar medicos
+
+// Modificar pacientes
 void modificarPacienteEnArchivo(const string &archivo, const string &nombrePaciente)
 {
     ifstream fileIn(archivo);
@@ -120,7 +127,8 @@ void modificarPacienteEnArchivo(const string &archivo, const string &nombrePacie
         cout << "Paciente con nombre " << nombrePaciente << " no encontrado.\n";
     }
 }
-
+*/
+/*
 class Medico
 {
 private:
@@ -160,6 +168,7 @@ public:
         file << "Años de experiencia: " << aniosExperiencia << "\n\n";
     }
 };
+
 
 // Modificar medico
 void modificarMedicoEnArchivo(const string &archivo, const string &nombreMedico)
@@ -212,7 +221,9 @@ void modificarMedicoEnArchivo(const string &archivo, const string &nombreMedico)
         cout << "Médico con nombre " << nombreMedico << " no encontrado.\n";
     }
 }
+*/
 
+/*
 class CitaMedica
 {
 private:
@@ -302,6 +313,7 @@ void modificarCitaEnArchivo(const string &archivo, int idCita)
         cout << "Cita con ID " << idCita << " no encontrada.\n";
     }
 }
+*/
 
 void mostrarMenu()
 {
