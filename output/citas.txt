@@ -1,8 +1,3 @@
-Cita 9
-Fecha y Hora: 20 de OCTUBRE 2025 15:45
-Prioridad: Media
-ID Paciente: 1
-ID Médico: 5
 
 Cita 7
 Fecha y Hora: 3 de diciembre 2024 12:40

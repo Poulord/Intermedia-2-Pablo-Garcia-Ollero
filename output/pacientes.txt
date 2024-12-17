@@ -1,44 +1,10 @@
-Paciente 12
-Nombre: Pablo Garcia
-Edad: 20
-Teléfono: 141115
-Teléfono: 315135135
-Teléfono: 1245
-Hospitalizado: Sí
-Motivo de ingreso: MAL ESTAR
-Médico de cabecera: Marta
-
-Paciente 20
-Nombre: David Lanchero Ipus
-Edad: 20
-Teléfono: 43235626
-Hospitalizado: Sí
-Motivo de ingreso: 
-Médico de cabecera: Rebeca
-
-Paciente 12
-Nombre: Juan Jose Garcia Ferrer
-Edad: 59
-Teléfono: 648587123
-Hospitalizado: Sí
-Motivo de ingreso: Dolor de oidos
-Médico de cabecera: Marta
-
-Paciente 123
-Nombre: Roberto
-Edad: 19
-Teléfono: 1111
-Teléfono: 141
-Hospitalizado: Sí
-Motivo de ingreso: Dolor de cabeza
-Médico de cabecera: Vanesa
-
 Paciente 1
-Nombre: �
-Edad: 0
-Teléfono: 
-Teléfono: 657146980
+Nombre: Pablo
+Edad: 19
+Teléfono: 637235745
 Hospitalizado: Sí
-Motivo de ingreso: Dolor de Oidos
+Motivo de ingreso: Dolor de oido
+Médico de cabecera: Marta
+
 Médico de cabecera: Marta
 

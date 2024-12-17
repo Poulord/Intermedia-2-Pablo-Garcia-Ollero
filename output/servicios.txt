@@ -2,6 +2,4 @@ Servicio 1
 Nombre: Lavanderia y Lenceria
 Descripción: Lavado y planchado de la ropa de los pacientes ingresados o no en el hospital
 Costo: 20
-Costo: 20
-Costo: 20
 

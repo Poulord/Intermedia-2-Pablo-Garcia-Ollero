@@ -4,6 +4,8 @@
 #include <fstream>
 #include <algorithm>
 using namespace std;
+
+
 class Paciente
 {
 private:
@@ -59,6 +61,37 @@ public:
         }
         file << "Médico de cabecera: " << (medicoCabecera.empty() ? "Ninguno" : medicoCabecera) << "\n\n";
     }
+
+    //Deconstructor
+     void eliminarPacienteEnArchivo(const string &archivo) const {
+        ifstream fileIn(archivo);
+        ofstream fileOut("temp.txt");
+        if (!fileIn || !fileOut) {
+            cerr << "Error al abrir los archivos para eliminar.\n";
+            return;
+        }
+        string linea;
+        bool encontrado = false;
+        while (getline(fileIn, linea)) {
+            if (linea.find("Paciente " + to_string(id)) != string::npos) {
+                encontrado = true;
+                // Saltar las siguientes líneas del paciente
+                for (int i = 0; i < 5; ++i) getline(fileIn, linea);
+                continue; // No escribir este paciente en el archivo temporal
+            }
+            fileOut << linea << '\n';
+        }
+        fileIn.close();
+        fileOut.close();
+        remove(archivo.c_str());
+        rename("temp.txt", archivo.c_str());
+        if (encontrado) {
+            cout << "Paciente con ID " << id << " eliminado.\n";
+        } else {
+            cout << "Paciente con ID " << id << " no encontrado.\n";
+        }
+    }
+
 };
 // Modificar pacientes
 void modificarPacienteEnArchivo(const string &archivo, const string &nombrePaciente)
@@ -140,6 +173,36 @@ public:
         file << "Disponible: " << (disponible ? "Sí" : "No") << "\n";
         file << "Años de experiencia: " << aniosExperiencia << "\n\n";
     }
+
+    //Deconstructor de MEDICOS
+    void eliminarMedicoEnArchivo(const string &archivo) const {
+        ifstream fileIn(archivo);
+        ofstream fileOut("temp.txt");
+        if (!fileIn || !fileOut) {
+            cerr << "Error al abrir los archivos para eliminar.\n";
+            return;
+        }
+        string linea;
+        bool encontrado = false;
+        while (getline(fileIn, linea)) {
+            if (linea.find("Médico " + to_string(id)) != string::npos) {
+                encontrado = true;
+                // Saltar las siguientes líneas del médico
+                for (int i = 0; i < 4; ++i) getline(fileIn, linea);
+                continue; // No escribir este médico en el archivo temporal
+            }
+            fileOut << linea << '\n';
+        }
+        fileIn.close();
+        fileOut.close();
+        remove(archivo.c_str());
+        rename("temp.txt", archivo.c_str());
+        if (encontrado) {
+            cout << "Médico con ID " << id << " eliminado.\n";
+        } else {
+            cout << "Médico con ID " << id << " no encontrado.\n";
+        }
+    }
 };
 // Modificar medico
 void modificarMedicoEnArchivo(const string &archivo, const string &nombreMedico)
@@ -220,6 +283,36 @@ public:
         file << "ID Paciente: " << idPaciente << "\n";
         file << "ID Médico: " << idMedico << "\n\n";
     }
+
+        //Deconstructor De CITAS MEDICAS
+     void eliminarCitaEnArchivo(const string &archivo) const {
+        ifstream fileIn(archivo);
+        ofstream fileOut("temp.txt");
+        if (!fileIn || !fileOut) {
+            cerr << "Error al abrir los archivos para eliminar.\n";
+            return;
+        }
+        string linea;
+        bool encontrado = false;
+        while (getline(fileIn, linea)) {
+            if (linea.find("Cita " + to_string(id)) != string::npos) {
+                encontrado = true;
+                // Saltar las siguientes líneas de la cita
+                for (int i = 0; i < 4; ++i) getline(fileIn, linea);
+                continue; // No escribir esta cita en el archivo temporal
+            }
+            fileOut << linea << '\n';
+        }
+        fileIn.close();
+        fileOut.close();
+        remove(archivo.c_str());
+        rename("temp.txt", archivo.c_str());
+        if (encontrado) {
+            cout << "Cita con ID " << id << " eliminada.\n";
+        } else {
+            cout << "Cita con ID " << id << " no encontrada.\n";
+        }
+    }
 };
 // Modificar citas
 void modificarCitaEnArchivo(const string &archivo, int idCita)
@@ -267,6 +360,8 @@ void modificarCitaEnArchivo(const string &archivo, int idCita)
         cout << "Cita con ID " << idCita << " no encontrada.\n";
     }
 }
+
+
 //Clase Servicios
 class Servicio {
 private:
@@ -294,6 +389,34 @@ public:
         file << "Nombre: " << nombre << "\n";
         file << "Descripción: " << descripcion << "\n";
         file << "Costo: " << costo << "\n\n";
+    }
+    void eliminarServicioEnArchivo(const string &archivo) const {
+        ifstream fileIn(archivo);
+        ofstream fileOut("temp.txt");
+        if (!fileIn || !fileOut) {
+            cerr << "Error al abrir los archivos para eliminar.\n";
+            return;
+        }
+        string linea;
+        bool encontrado = false;
+        while (getline(fileIn, linea)) {
+            if (linea.find ("Servicio " + to_string(id)) != string::npos) {
+                encontrado = true;
+                // Saltar las siguientes líneas del servicio
+                for (int i = 0; i < 4; ++i) getline(fileIn, linea);
+                continue; // No escribir este servicio en el archivo temporal
+            }
+            fileOut << linea << '\n';
+        }
+        fileIn.close();
+        fileOut.close();
+        remove(archivo.c_str());
+        rename("temp.txt", archivo.c_str());
+        if (encontrado) {
+            cout << "Servicio con ID " << id << " eliminado.\n";
+        } else {
+            cout << "Servicio con ID " << id << " no encontrado.\n";
+        }
     }
 };
 // Modificar servicios
@@ -341,6 +464,8 @@ void modificarServicioEnArchivo(const string& archivo, int idServicio) {
         cout << "Servicio con ID " << idServicio << " no encontrado.\n";
     }
 }
+
+
 void mostrarMenu()
 {
     cout << "=== Menú Principal ===\n"
@@ -354,14 +479,21 @@ void mostrarMenu()
          << "   2.2 Agregar Médico\n"
          << "   2.3 Agregar Cita Médica\n"
          << "   2.4 Agregar Servicio\n"
-         << "3. Ver Datos\n"
-         << "   3.1 Ver Pacientes Registrados\n"
-         << "   3.2 Ver Médicos Registrados\n"
-         << "   3.3 Ver Citas Médicas\n"
-         << "   3.4 Ver Servicios\n"
+         << "3. Eliminar Datos\n"
+         << "   3.1 Eliminar Paciente\n"
+         << "   3.2 Eliminar Médico\n"
+         << "   3.3 Eliminar Cita Médica\n"
+         << "   3.4 Eliminar Servicio\n"
+         << "4. Ver Datos\n"
+         << "   4.1 Ver Pacientes Registrados\n"
+         << "   4.2 Ver Médicos Registrados\n"
+         << "   4.3 Ver Citas Médicas\n"
+         << "   4.4 Ver Servicios\n"
          << "0. Salir\n"
          << "Seleccione una opción: ";
 }
+
+
 void mostrarContenidoDesdeArchivo(const string &archivo)
 {
     ifstream file(archivo);
@@ -538,7 +670,61 @@ int main()
                 }
                 break;
             }
-        case 3: // Ver Datos
+            case 3: // Eliminar Datos
+        {
+            int subOpcion;
+            cout << "Seleccione una opción para eliminar:\n";
+            cout << "1. Eliminar Paciente\n"
+                 << "2. Eliminar Médico\n"
+                 << "3. Eliminar Cita Médica\n"
+                 << "4. Eliminar Servicio\n";
+            cin >> subOpcion;
+            cin.ignore();
+            switch (subOpcion)
+            {
+            case 1: {
+                cout << "Ingrese el ID del paciente a eliminar: ";
+                int idPaciente;
+                cin >> idPaciente;
+                cin.ignore();
+                Paciente paciente(idPaciente, "", 0, ""); // Crear objeto para llamar al método
+                paciente.eliminarPacienteEnArchivo("pacientes.txt");
+                break;
+            }
+            case 2: {
+                cout << "Ingrese el ID del médico a eliminar: ";
+                int idMedico;
+                cin >> idMedico;
+                cin.ignore();
+                Medico medico(idMedico, "", "", true, 0); // Crear objeto para llamar al método
+                medico.eliminarMedicoEnArchivo("medicos.txt");
+                break;
+            }
+            case 3: {
+                cout << "Ingrese el ID de la cita a eliminar: ";
+                int idCita;
+                cin >> idCita;
+                cin.ignore();
+                CitaMedica cita(idCita, "", 0, 0, 0); // Crear objeto para llamar al método
+                cita.eliminarCitaEnArchivo("citas.txt");
+                break;
+            }
+            case 4: {
+                cout << "Ingrese el ID del servicio a eliminar: ";
+                int idServicio;
+                cin >> idServicio;
+                cin.ignore();
+                Servicio servicio(idServicio, "", "", 0.0); // Crear objeto para llamar al método
+                servicio.eliminarServicioEnArchivo("servicios.txt");
+                break;
+            }
+            default:
+                cout << "Opción no válida. Intente de nuevo.\n";
+                break;
+ }
+            break;
+        }
+        case 4: // Ver Datos
         {
             int subOpcion;
                 cout << "Seleccione una opción para ver:\n";
