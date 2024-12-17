@@ -4,14 +4,13 @@
 cmake_minimum_required(VERSION 3.10)
 
 # Establecer el nombre del proyecto
-project(GestionPacientes)
+project(GestionHospitalaria)
 
 # Especificar el estándar de C++
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 # Agregar el ejecutable
-add_executable(GestionPacientes main.cpp)
+add_executable(GestionHospitalaria main.cpp)
 
-# Si tienes más archivos de implementación, puedes agregarlos aquí
-# add_executable(GestionPacientes main.cpp otros_archivos.cpp)
+# add_executable(GestionHospitalaria main.cpp otros_archivos.cpp)
