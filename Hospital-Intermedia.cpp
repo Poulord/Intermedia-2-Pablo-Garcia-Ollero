@@ -6,9 +6,15 @@
 
 using namespace std;
 
+/*
+#include "servicios.h"
+#include "servicios.cpp"
+*/
+
 #include "pacientes.cpp"
 #include "medicos.cpp"
 #include "cita_medica.cpp"
+
 
 /*
 
@@ -330,7 +336,23 @@ void mostrarMenu()
          << "   3.2 Ver Médicos Registrados\n"
          << "   3.3 Ver Citas Médicas\n"
          << "0. Salir\n"
+             //Aquiiiiiiiiii
+             /*
+         << "4. Ver Datos\n"
+         << "   4.1 Ver Servicios Disponibles\n"
+         << "   4.2 Asignar un servicio a un paciente\n"
+         << "   4.3Regresar al menu principal\n"
+         */
          << "Seleccione una opción: ";
+
+        /*
+         GestionServicios gestionServicios;
+
+    // Agregar servicios predefinidos
+    gestionServicios.agregarServicio(Servicio(1, "Quimioterapia", 0.0));
+    gestionServicios.agregarServicio(Servicio(2, "Asistencia presencial en casa", 20.0));
+    gestionServicios.agregarServicio(Servicio(3, "Llevar medicamentos a casa", 30.0));
+    */
 }
 
 void mostrarContenidoDesdeArchivo(const string &archivo)
@@ -519,9 +541,51 @@ int main()
             }
             break;
         }
+        /*
+        case 4: // Servicios
+        {
+            int subOpcion;
+            cout << "Seleccione una opción para ver:\n";
+            cout << "1. Ver servicios Disponibles \n"
+                 << "2. Asignar un servicio a un paciente\n"
+                 << "3. Regresar al menu Principal\n";
+            cin >> subOpcion;
+            cin.ignore();
+
+            switch (subOpcion)
+            {
+            case 1:
+                            gestionServicios.mostrarServicios();
+                            break;
+                        case 2: {
+                            int idServicio, idPaciente;
+                            cout << "Ingrese ID del servicio: ";
+                            cin >> idServicio;
+                            cout << "Ingrese ID del paciente: ";
+                            cin >> idPaciente;
+
+                            try {
+                                Servicio servicio = gestionServicios.buscarServicioPorId(idServicio);
+                                cout << "Servicio asignado exitosamente al paciente con ID: " << idPaciente << "\n";
+                                servicio.mostrarDetalles();
+                                // Aquí puedes agregar lógica para guardar la asignación en un archivo
+                            } catch (const exception &e) {
+                                cerr << e.what() << "\n";
+                            }
+                            break;
+                        }
+                        case 3:
+                            break;
+                        default:
+                            cout << "Opción no válida. Intente de nuevo.\n";
+                            break;
+                    }
+                } while (opcionServicio != 0);
+                break;
         case 0:
             cout << "Saliendo del programa...\n";
             break;
+            */
         default:
             cout << "Opción no válida. Intente de nuevo.\n";
             break;
