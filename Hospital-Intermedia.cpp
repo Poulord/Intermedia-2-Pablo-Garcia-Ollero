@@ -338,9 +338,9 @@ void mostrarMenu()
          << "0. Salir\n"
              //Aquiiiiiiiiii
              /*
-         << "4. Ver Datos\n"
-         << "   4.1 Ver Servicios Disponibles\n"
-         << "   4.2 Asignar un servicio a un paciente\n"
+         << "4. Servicios\n"
+         << "   4.2 Ver Servicios Disponibles\n"
+         << "   4.1 Asignar un servicio a un paciente\n"
          << "   4.3Regresar al menu principal\n"
          */
          << "Seleccione una opción: ";
