@@ -33,3 +33,12 @@ Hospitalizado: Sí
 Motivo de ingreso: Dolor de cabeza
 Médico de cabecera: Vanesa
 
+Paciente 1
+Nombre: �
+Edad: 0
+Teléfono: 
+Teléfono: 657146980
+Hospitalizado: Sí
+Motivo de ingreso: Dolor de Oidos
+Médico de cabecera: Marta
+
