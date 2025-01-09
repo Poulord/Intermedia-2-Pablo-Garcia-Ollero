@@ -8,3 +8,19 @@ Médico de cabecera: Marta
 
 Médico de cabecera: Marta
 
+Paciente 2
+Nombre: Sofia
+Edad: 19
+Teléfono: 6720937351
+Hospitalizado: Sí
+Motivo de ingreso: DOLOR DE CABNEZA Y DE GARGANTA
+Médico de cabecera: Pedro
+
+Paciente 0
+Nombre: 
+Edad: 0
+Teléfono: 
+Hospitalizado: No
+Médico de cabecera: Ninguno
+Servicios: 0 
+

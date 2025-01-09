@@ -3,3 +3,13 @@ Nombre: Lavanderia y Lenceria
 Descripción: Lavado y planchado de la ropa de los pacientes ingresados o no en el hospital
 Costo: 20
 
+Servicio 3
+Nombre: Servicio de compania
+Descripción: Alguien viene a pasar el rato contigo por 2 horas
+Costo: 10
+
+Servicio 2
+Nombre: Prueba nuemero 2
+Descripción: Sigue siendo una prueba
+Costo: 49
+
