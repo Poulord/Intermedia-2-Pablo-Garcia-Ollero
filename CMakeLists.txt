@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.6)
 
-project(Pruebas2.0)
+project(Pruebas CMAKE LIST)
 
 # Especificación de C++ estándar
 set(CMAKE_CXX_STANDARD 20)
@@ -29,7 +29,7 @@ message(STATUS "CMAKE_CXX_COMPILER_ID: ${CMAKE_CXX_COMPILER_ID}")
 message(STATUS "CMAKE_CXX_COMPILER_VERSION: ${CMAKE_CXX_COMPILER_VERSION}")
 
 # Configuración del ejecutable
-add_executable(AB FINAL src/Pruebas2.0.cpp)
+add_executable(MiEjecutable DE PRUEBA ${SOURCES})
 
 # Directorios de encabezados
 target_include_directories(AB FINAL PRIVATE ${PROJECT_SOURCE_DIR}/include)
