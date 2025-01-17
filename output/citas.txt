@@ -11,9 +11,4 @@ Prioridad: Alta
 ID Paciente: 1
 ID Médico: 5
 
-Cita 0
-Fecha y Hora: 
-Prioridad: Baja
-ID Paciente: 9
-ID Médico: 2
 

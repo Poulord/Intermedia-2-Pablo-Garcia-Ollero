@@ -1,8 +1,8 @@
-#include "servicios.h"
+#include "Servicios.hpp"
 #include <iostream>
 #include <stdexcept>
 #ifndef SERVICIOS_H
-#define SERVICIOS_H
+#define SERVICIOS_
 #endif // SERVICIOS_H
 
 #include <string>

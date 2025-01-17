@@ -413,6 +413,37 @@ void modificarMedicoEnArchivo(const string &archivo, const string &nombreMedico)
         cout << "Médico con nombre " << nombreMedico << " no encontrado.\n";
     }
 }
+
+//Funcion para buscar medico por ID o por Nombre
+bool buscarMedico(const string &archivo, const string &idMedico, const string &nombreMedico) {
+    ifstream file(archivo);
+    if (!file) {
+        cerr << "Error al abrir el archivo: " << archivo << endl;
+        return false;
+    }
+
+    string linea;
+    while (getline(file, linea) ) {
+        if (linea.find("Médico ") != string::npos) {
+            // Leer el ID del médico
+            int id = stoi(linea.substr(7)); // Asumiendo que "Médico " tiene 7 caracteres
+            if (to_string(id) == idMedico) {
+                return true; // Médico encontrado por ID
+            }
+            // Leer el nombre del médico
+            getline(file, linea); // Leer la línea del nombre
+            if (linea.find("Nombre: ") != string::npos) {
+                string nombre = linea.substr(8); // Asumiendo que "Nombre: " tiene 8 caracteres
+                if (nombre == nombreMedico) {
+                    return true; // Médico encontrado por nombre
+                }
+            }
+        }
+    }
+    return false; // Médico no encontrado
+}
+
+
 class CitaMedica
 {
 private:
@@ -534,7 +565,6 @@ void modificarCitaEnArchivo(const string &archivo, int idCita)
 }
 
 
-
 void mostrarMenu()
 {
     cout << "=== Menú Principal ===\n"
@@ -653,31 +683,43 @@ int main()
             cin.ignore();
             switch (subOpcion)
             {
-            case 1:
-            {
-                int id, edad;
-                string nombre, telefono, motivo, medico;
-                cout << "Ingrese ID del paciente: ";
-                cin >> id;
-                cin.ignore();
-                cout << "Ingrese nombre del paciente: ";
-                getline(cin, nombre);
-                cout << "Ingrese edad del paciente: ";
-                cin >> edad;
-                cin.ignore();
-                cout << "Ingrese teléfono del paciente: ";
-                getline(cin, telefono);
-                cout << "Ingrese motivo de ingreso: ";
-                getline(cin, motivo);
-                cout << "Ingrese médico de cabecera: ";
-                getline(cin, medico);
-                Paciente nuevoPaciente(id, nombre, edad, telefono);
-                nuevoPaciente.ingresarPaciente(motivo);
-                nuevoPaciente.asignarMedicoCabecera(medico);
-                nuevoPaciente.guardarEnArchivo("pacientes.txt");
-                cout << "Paciente registrado exitosamente.\n";
-                break;
-            }
+            case 1: // Agregar Paciente
+{
+    int id, edad;
+    string nombre, telefono, motivo, medico;
+    cout << "Ingrese ID del paciente: ";
+    cin >> id;
+    cin.ignore();
+    cout << "Ingrese nombre del paciente: ";
+    getline(cin, nombre);
+    cout << "Ingrese edad del paciente: ";
+    cin >> edad;
+    cin.ignore();
+    cout << "Ingrese teléfono del paciente: ";
+    getline(cin, telefono);
+    cout << "Ingrese motivo de ingreso: ";
+    getline(cin, motivo);
+
+    // Verificar médico de cabecera
+    string idMedico, nombreMedico;
+    cout << "Ingrese ID del médico de cabecera: ";
+    getline(cin, idMedico);
+    cout << "Ingrese nombre del médico de cabecera: ";
+    getline(cin, nombreMedico);
+
+    // Buscar médico
+    if (!buscarMedico("medicos.txt", idMedico, nombreMedico)) {
+        cout << "Error: Médico no encontrado. Intente nuevamente o regrese al menú principal.\n";
+        break; // Regresar al menú principal
+    }
+
+    Paciente nuevoPaciente(id, nombre, edad, telefono);
+    nuevoPaciente.ingresarPaciente(motivo);
+    nuevoPaciente.asignarMedicoCabecera(nombreMedico); // Asignar solo el nombre
+    nuevoPaciente.guardarEnArchivo("pacientes.txt");
+    cout << "Paciente registrado exitosamente.\n";
+    break;
+}
             case 2:
             {
                 int id, aniosExperiencia;

@@ -24,3 +24,37 @@ Hospitalizado: No
 Médico de cabecera: Ninguno
 Servicios: 0 
 
+Paciente 4
+Nombre: Raul
+Edad: 23
+Teléfono: 678908456
+Hospitalizado: Sí
+Motivo de ingreso: Dolor en el pie
+Médico de cabecera: Adolfo
+Servicios: 
+
+Paciente 3
+Nombre: Roberto
+Edad: 19
+Teléfono: 345678987
+Hospitalizado: Sí
+Motivo de ingreso: Esguince
+Médico de cabecera: Marta
+Servicios: 
+
+Paciente 0
+Nombre: 
+Edad: 0
+Teléfono: 
+Hospitalizado: No
+Médico de cabecera: Ninguno
+Servicios: 0 
+
+Paciente 0
+Nombre: 
+Edad: 0
+Teléfono: 
+Hospitalizado: No
+Médico de cabecera: Ninguno
+Servicios: 0 
+
