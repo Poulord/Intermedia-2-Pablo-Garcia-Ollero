@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.6)
 
-project(Pruebas CMAKE LIST)
+project(Pruebas CMAKE LIST 2)
 
 # Especificación de C++ estándar
 set(CMAKE_CXX_STANDARD 20)
