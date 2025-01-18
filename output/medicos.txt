@@ -1,9 +1,0 @@
-Médico 1
-Nombre: Pedro
-Especialidad: Neurologia
-Disponible: No
-Disponible: No
-Años de experiencia: 5
-
-
-

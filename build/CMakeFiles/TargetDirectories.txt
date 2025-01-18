@@ -1,0 +1,3 @@
+C:/Users/davud/Desktop/Pablo/AB-Final/build/CMakeFiles/HospitalManagement.dir
+C:/Users/davud/Desktop/Pablo/AB-Final/build/CMakeFiles/edit_cache.dir
+C:/Users/davud/Desktop/Pablo/AB-Final/build/CMakeFiles/rebuild_cache.dir
