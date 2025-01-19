@@ -1,0 +1,16 @@
+Paciente 1
+Nombre: Pablo
+Edad: 19
+Teléfono: 457839454
+Hospitalizado: No
+Médico de cabecera: 1
+Servicios: 
+
+Paciente 1
+Nombre: Nombre: Pablo
+Edad: 0
+Teléfono: 
+Hospitalizado: No
+Médico de cabecera: Ninguno
+Servicios: 1 
+

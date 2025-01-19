@@ -1,10 +1,21 @@
 
 #include "../include/Servicio.hpp"
 
+
+
+std::string Servicio::getNombre() const {
+    return nombre; 
+}
+
+// Constructor
 Servicio::Servicio(int id, const std::string &nombre, const std::string &descripcion, double costo)
     : id(id), nombre(nombre), descripcion(descripcion), costo(costo) {}
 
-int Servicio::getId() const { return id; }
+// Método para obtener el Id
+int Servicio::getId() const {
+ return id;
+}
+
 
 void Servicio::mostrarDetalles() const {
     std::cout << "ID del Servicio: " << id << "\n"
@@ -37,9 +48,9 @@ void Servicio::eliminarServicioEnArchivo(const std::string &archivo) const {
     while (getline(fileIn, linea)) {
         if (linea.find("Servicio " + std::to_string(id)) != std::string::npos) {
             encontrado = true;
-            for (int i = 0; i < 4; ++i) // Saltar las siguientes líneas del servicio
+            for (int i = 0; i < 4; ++i) 
                 getline(fileIn, linea);
-            continue; // No escribir este servicio en el archivo temporal
+            continue; // No escribe este servicio en el archivo txt
         }
         fileOut << linea << '\n';
     }
@@ -81,9 +92,9 @@ void Servicio::modificarServicioEnArchivo(const std::string &archivo) const {
             fileOut << "Nombre: " << nuevoNombre << '\n';
             fileOut << "Descripción: " << nuevaDescripcion << '\n';
             fileOut << "Costo: " << nuevoCosto << '\n';
-            getline(fileIn, linea); // Saltar línea de nombre original
-            getline(fileIn, linea); // Saltar línea de descripción original
-            getline(fileIn, linea); // Saltar línea de costo original
+            getline(fileIn, linea); 
+            getline(fileIn, linea); 
+            getline(fileIn, linea); 
         } else {
             fileOut << linea << '\n';
         }
@@ -95,4 +106,30 @@ void Servicio::modificarServicioEnArchivo(const std::string &archivo) const {
     if (!encontrado) {
         std::cout << "Servicio con ID " << id << " no encontrado.\n";
     }
+}
+
+Servicio* buscarServicioPorId(int id, const std::string &archivo) {
+    std::ifstream file(archivo);
+    if (!file) {
+        std::cerr << "Error al abrir el archivo: " << archivo << std::endl;
+        return nullptr;
+    }
+
+    std::string linea;
+    while (getline(file, linea)) {
+        if (linea.find("Servicio " + std::to_string(id)) != std::string::npos) {
+            std::string nombre, descripcion;
+            double costo;
+
+            
+            getline(file, nombre);
+            getline(file, descripcion);
+            file >> costo;
+            file.ignore(); 
+
+            
+            return new Servicio(id, nombre, descripcion, costo);
+        }
+    }
+    return nullptr; 
 }

@@ -1,15 +1,15 @@
 
 #include "../include/CitaMedica.hpp"
 
-CitaMedica::CitaMedica(int id, const std::string &fechaHora, int prioridad, int idPaciente, int idMedico)
-    : id(id), fechaHora(fechaHora), prioridad(prioridad), idPaciente(idPaciente), idMedico(idMedico) {}
+CitaMedica::CitaMedica(int id, const std::string &fechaHora, int prioridad, Paciente* paciente, Medico* medico)
+    : id(id), fechaHora(fechaHora), prioridad(prioridad), paciente(paciente), medico(medico) {}
 
 void CitaMedica::mostrarDetalles() const {
     std::cout << "ID de Cita: " << id << "\n"
               << "Fecha y Hora: " << fechaHora << "\n"
               << "Prioridad: " << (prioridad == 1 ? "Alta" : (prioridad == 2 ? "Media" : "Baja")) << "\n"
-              << "ID Paciente: " << idPaciente << "\n"
-              << "ID Médico: " << idMedico << "\n";
+              << "Paciente: " << (paciente ? paciente->getId() : 0) << "\n"
+              << "Médico: " << (medico ? medico->getId() : 0) << "\n";
 }
 
 void CitaMedica::guardarEnArchivo(const std::string &archivo) const {
@@ -21,8 +21,8 @@ void CitaMedica::guardarEnArchivo(const std::string &archivo) const {
     file << "Cita " << id << "\n"
          << "Fecha y Hora: " << fechaHora << "\n"
          << "Prioridad: " << (prioridad == 1 ? "Alta" : (prioridad == 2 ? "Media" : "Baja")) << "\n"
-         << "ID Paciente: " << idPaciente << "\n"
-         << "ID Médico: " << idMedico << "\n\n";
+         << "ID Paciente: " << (paciente ? paciente->getId() : 0) << "\n" 
+         << "ID Médico: " << (medico ? medico->getId() : 0) << "\n\n"; 
 }
 
 void CitaMedica::eliminarCitaEnArchivo(const std::string &archivo) const {
@@ -37,9 +37,9 @@ void CitaMedica::eliminarCitaEnArchivo(const std::string &archivo) const {
     while (getline(fileIn, linea)) {
         if (linea.find("Cita " + std::to_string(id)) != std::string::npos) {
             encontrado = true;
-            for (int i = 0; i < 4; ++i) // Saltar las siguientes líneas de la cita
+            for (int i = 0; i < 4; ++i) 
                 getline(fileIn, linea);
-            continue; // No escribir esta cita en el archivo temporal
+            continue; 
         }
         fileOut << linea << '\n';
     }
@@ -77,8 +77,8 @@ void CitaMedica::modificarCitaEnArchivo(const std::string &archivo) const {
             fileOut << linea << '\n';
             fileOut << "Fecha y Hora: " << nuevaFechaHora << '\n';
             fileOut << "Prioridad: " << (nuevaPrioridad == 1 ? "Alta" : (nuevaPrioridad == 2 ? "Media" : "Baja")) << '\n';
-            getline(fileIn, linea); // Saltar línea de fecha y hora original
-            getline(fileIn, linea); // Saltar línea de prioridad original
+            getline(fileIn, linea); 
+            getline(fileIn, linea); 
         } else {
             fileOut << linea << '\n';
         }

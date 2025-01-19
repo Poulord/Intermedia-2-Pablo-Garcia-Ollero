@@ -1,0 +1,38 @@
+[
+{
+  "directory": "C:/Users/davud/Desktop/Pablo/Prueba_AB/Prueba_AB/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/HospitalManagement.dir/includes_CXX.rsp  -Wall -Wextra -g -std=gnu++11 -o CMakeFiles\\HospitalManagement.dir\\src\\main.cpp.obj -c C:\\Users\\davud\\Desktop\\Pablo\\Prueba_AB\\Prueba_AB\\src\\main.cpp",
+  "file": "C:/Users/davud/Desktop/Pablo/Prueba_AB/Prueba_AB/src/main.cpp",
+  "output": "CMakeFiles/HospitalManagement.dir/src/main.cpp.obj"
+},
+{
+  "directory": "C:/Users/davud/Desktop/Pablo/Prueba_AB/Prueba_AB/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/HospitalManagement.dir/includes_CXX.rsp  -Wall -Wextra -g -std=gnu++11 -o CMakeFiles\\HospitalManagement.dir\\src\\Funciones.cpp.obj -c C:\\Users\\davud\\Desktop\\Pablo\\Prueba_AB\\Prueba_AB\\src\\Funciones.cpp",
+  "file": "C:/Users/davud/Desktop/Pablo/Prueba_AB/Prueba_AB/src/Funciones.cpp",
+  "output": "CMakeFiles/HospitalManagement.dir/src/Funciones.cpp.obj"
+},
+{
+  "directory": "C:/Users/davud/Desktop/Pablo/Prueba_AB/Prueba_AB/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/HospitalManagement.dir/includes_CXX.rsp  -Wall -Wextra -g -std=gnu++11 -o CMakeFiles\\HospitalManagement.dir\\src\\Servicio.cpp.obj -c C:\\Users\\davud\\Desktop\\Pablo\\Prueba_AB\\Prueba_AB\\src\\Servicio.cpp",
+  "file": "C:/Users/davud/Desktop/Pablo/Prueba_AB/Prueba_AB/src/Servicio.cpp",
+  "output": "CMakeFiles/HospitalManagement.dir/src/Servicio.cpp.obj"
+},
+{
+  "directory": "C:/Users/davud/Desktop/Pablo/Prueba_AB/Prueba_AB/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/HospitalManagement.dir/includes_CXX.rsp  -Wall -Wextra -g -std=gnu++11 -o CMakeFiles\\HospitalManagement.dir\\src\\Paciente.cpp.obj -c C:\\Users\\davud\\Desktop\\Pablo\\Prueba_AB\\Prueba_AB\\src\\Paciente.cpp",
+  "file": "C:/Users/davud/Desktop/Pablo/Prueba_AB/Prueba_AB/src/Paciente.cpp",
+  "output": "CMakeFiles/HospitalManagement.dir/src/Paciente.cpp.obj"
+},
+{
+  "directory": "C:/Users/davud/Desktop/Pablo/Prueba_AB/Prueba_AB/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/HospitalManagement.dir/includes_CXX.rsp  -Wall -Wextra -g -std=gnu++11 -o CMakeFiles\\HospitalManagement.dir\\src\\Medico.cpp.obj -c C:\\Users\\davud\\Desktop\\Pablo\\Prueba_AB\\Prueba_AB\\src\\Medico.cpp",
+  "file": "C:/Users/davud/Desktop/Pablo/Prueba_AB/Prueba_AB/src/Medico.cpp",
+  "output": "CMakeFiles/HospitalManagement.dir/src/Medico.cpp.obj"
+},
+{
+  "directory": "C:/Users/davud/Desktop/Pablo/Prueba_AB/Prueba_AB/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/HospitalManagement.dir/includes_CXX.rsp  -Wall -Wextra -g -std=gnu++11 -o CMakeFiles\\HospitalManagement.dir\\src\\CitaMedica.cpp.obj -c C:\\Users\\davud\\Desktop\\Pablo\\Prueba_AB\\Prueba_AB\\src\\CitaMedica.cpp",
+  "file": "C:/Users/davud/Desktop/Pablo/Prueba_AB/Prueba_AB/src/CitaMedica.cpp",
+  "output": "CMakeFiles/HospitalManagement.dir/src/CitaMedica.cpp.obj"
+}
+]

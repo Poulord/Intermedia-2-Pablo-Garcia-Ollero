@@ -8,7 +8,9 @@
 Medico::Medico(int id, const std::string &nombre, const std::string &especialidad, bool disponible, int aniosExperiencia)
     : id(id), nombre(nombre), especialidad(especialidad), disponible(disponible), aniosExperiencia(aniosExperiencia) {}
 
-int Medico::getId() const { return id; }
+int Medico::getId() const {
+    return id;
+}
 
 void Medico::mostrarDetalles() const {
     std::cout << "ID: " << id << "\n"
@@ -43,9 +45,9 @@ void Medico::eliminarMedicoEnArchivo(const std::string &archivo) const {
     while (getline(fileIn, linea)) {
         if (linea.find("Médico " + std::to_string(id)) != std::string::npos) {
             encontrado = true;
-            for (int i = 0; i < 4; ++i) // Saltar las siguientes líneas del médico
+            for (int i = 0; i < 4; ++i) // Salta las siguientes líneas del médico
                 getline(fileIn, linea);
-            continue; // No escribir este médico en el archivo temporal
+            continue; // No escribe este médico en el archivo txt
         }
         fileOut << linea << '\n';
     }
@@ -83,8 +85,8 @@ void Medico::modificarMedicoEnArchivo(const std::string &archivo) const {
             fileOut << linea << '\n';
             fileOut << "Especialidad: " << nuevaEspecialidad << '\n';
             fileOut << "Disponible: " << (nuevaDisponibilidad ? "Sí" : "No") << '\n';
-            getline(fileIn, linea); // Saltar línea de especialidad original
-            getline(fileIn, linea); // Saltar línea de disponibilidad original
+            getline(fileIn, linea); 
+            getline(fileIn, linea); 
         } else {
             fileOut << linea << '\n';
         }

@@ -15,6 +15,7 @@ int main() {
             case 2: agregarDatos(); break;
             case 3: eliminarDatos(); break;
             case 4: verDatos(); break;
+            case 0: std::cout << "Saliendo del programa...\n"; break;
             default: std::cout << "Opción no válida. Intente de nuevo.\n"; break;
         }
     } while (opcion != 0);

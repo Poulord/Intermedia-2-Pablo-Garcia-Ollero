@@ -52,10 +52,10 @@ RM = "C:\Program Files\CMake\bin\cmake.exe" -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\davud\Desktop\Pablo\AB-Final
+CMAKE_SOURCE_DIR = C:\Users\davud\Desktop\Pablo\Prueba_AB\Prueba_AB
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\davud\Desktop\Pablo\AB-Final\build
+CMAKE_BINARY_DIR = C:\Users\davud\Desktop\Pablo\Prueba_AB\Prueba_AB\build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/HospitalManagement.dir/depend.make
@@ -73,93 +73,93 @@ CMakeFiles/HospitalManagement.dir/codegen:
 
 CMakeFiles/HospitalManagement.dir/src/main.cpp.obj: CMakeFiles/HospitalManagement.dir/flags.make
 CMakeFiles/HospitalManagement.dir/src/main.cpp.obj: CMakeFiles/HospitalManagement.dir/includes_CXX.rsp
-CMakeFiles/HospitalManagement.dir/src/main.cpp.obj: C:/Users/davud/Desktop/Pablo/AB-Final/src/main.cpp
+CMakeFiles/HospitalManagement.dir/src/main.cpp.obj: C:/Users/davud/Desktop/Pablo/Prueba_AB/Prueba_AB/src/main.cpp
 CMakeFiles/HospitalManagement.dir/src/main.cpp.obj: CMakeFiles/HospitalManagement.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\davud\Desktop\Pablo\AB-Final\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/HospitalManagement.dir/src/main.cpp.obj"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/HospitalManagement.dir/src/main.cpp.obj -MF CMakeFiles\HospitalManagement.dir\src\main.cpp.obj.d -o CMakeFiles\HospitalManagement.dir\src\main.cpp.obj -c C:\Users\davud\Desktop\Pablo\AB-Final\src\main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\davud\Desktop\Pablo\Prueba_AB\Prueba_AB\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/HospitalManagement.dir/src/main.cpp.obj"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/HospitalManagement.dir/src/main.cpp.obj -MF CMakeFiles\HospitalManagement.dir\src\main.cpp.obj.d -o CMakeFiles\HospitalManagement.dir\src\main.cpp.obj -c C:\Users\davud\Desktop\Pablo\Prueba_AB\Prueba_AB\src\main.cpp
 
 CMakeFiles/HospitalManagement.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/HospitalManagement.dir/src/main.cpp.i"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\davud\Desktop\Pablo\AB-Final\src\main.cpp > CMakeFiles\HospitalManagement.dir\src\main.cpp.i
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\davud\Desktop\Pablo\Prueba_AB\Prueba_AB\src\main.cpp > CMakeFiles\HospitalManagement.dir\src\main.cpp.i
 
 CMakeFiles/HospitalManagement.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/HospitalManagement.dir/src/main.cpp.s"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\davud\Desktop\Pablo\AB-Final\src\main.cpp -o CMakeFiles\HospitalManagement.dir\src\main.cpp.s
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\davud\Desktop\Pablo\Prueba_AB\Prueba_AB\src\main.cpp -o CMakeFiles\HospitalManagement.dir\src\main.cpp.s
 
 CMakeFiles/HospitalManagement.dir/src/Funciones.cpp.obj: CMakeFiles/HospitalManagement.dir/flags.make
 CMakeFiles/HospitalManagement.dir/src/Funciones.cpp.obj: CMakeFiles/HospitalManagement.dir/includes_CXX.rsp
-CMakeFiles/HospitalManagement.dir/src/Funciones.cpp.obj: C:/Users/davud/Desktop/Pablo/AB-Final/src/Funciones.cpp
+CMakeFiles/HospitalManagement.dir/src/Funciones.cpp.obj: C:/Users/davud/Desktop/Pablo/Prueba_AB/Prueba_AB/src/Funciones.cpp
 CMakeFiles/HospitalManagement.dir/src/Funciones.cpp.obj: CMakeFiles/HospitalManagement.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\davud\Desktop\Pablo\AB-Final\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/HospitalManagement.dir/src/Funciones.cpp.obj"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/HospitalManagement.dir/src/Funciones.cpp.obj -MF CMakeFiles\HospitalManagement.dir\src\Funciones.cpp.obj.d -o CMakeFiles\HospitalManagement.dir\src\Funciones.cpp.obj -c C:\Users\davud\Desktop\Pablo\AB-Final\src\Funciones.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\davud\Desktop\Pablo\Prueba_AB\Prueba_AB\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/HospitalManagement.dir/src/Funciones.cpp.obj"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/HospitalManagement.dir/src/Funciones.cpp.obj -MF CMakeFiles\HospitalManagement.dir\src\Funciones.cpp.obj.d -o CMakeFiles\HospitalManagement.dir\src\Funciones.cpp.obj -c C:\Users\davud\Desktop\Pablo\Prueba_AB\Prueba_AB\src\Funciones.cpp
 
 CMakeFiles/HospitalManagement.dir/src/Funciones.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/HospitalManagement.dir/src/Funciones.cpp.i"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\davud\Desktop\Pablo\AB-Final\src\Funciones.cpp > CMakeFiles\HospitalManagement.dir\src\Funciones.cpp.i
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\davud\Desktop\Pablo\Prueba_AB\Prueba_AB\src\Funciones.cpp > CMakeFiles\HospitalManagement.dir\src\Funciones.cpp.i
 
 CMakeFiles/HospitalManagement.dir/src/Funciones.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/HospitalManagement.dir/src/Funciones.cpp.s"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\davud\Desktop\Pablo\AB-Final\src\Funciones.cpp -o CMakeFiles\HospitalManagement.dir\src\Funciones.cpp.s
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\davud\Desktop\Pablo\Prueba_AB\Prueba_AB\src\Funciones.cpp -o CMakeFiles\HospitalManagement.dir\src\Funciones.cpp.s
 
 CMakeFiles/HospitalManagement.dir/src/Servicio.cpp.obj: CMakeFiles/HospitalManagement.dir/flags.make
 CMakeFiles/HospitalManagement.dir/src/Servicio.cpp.obj: CMakeFiles/HospitalManagement.dir/includes_CXX.rsp
-CMakeFiles/HospitalManagement.dir/src/Servicio.cpp.obj: C:/Users/davud/Desktop/Pablo/AB-Final/src/Servicio.cpp
+CMakeFiles/HospitalManagement.dir/src/Servicio.cpp.obj: C:/Users/davud/Desktop/Pablo/Prueba_AB/Prueba_AB/src/Servicio.cpp
 CMakeFiles/HospitalManagement.dir/src/Servicio.cpp.obj: CMakeFiles/HospitalManagement.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\davud\Desktop\Pablo\AB-Final\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/HospitalManagement.dir/src/Servicio.cpp.obj"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/HospitalManagement.dir/src/Servicio.cpp.obj -MF CMakeFiles\HospitalManagement.dir\src\Servicio.cpp.obj.d -o CMakeFiles\HospitalManagement.dir\src\Servicio.cpp.obj -c C:\Users\davud\Desktop\Pablo\AB-Final\src\Servicio.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\davud\Desktop\Pablo\Prueba_AB\Prueba_AB\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/HospitalManagement.dir/src/Servicio.cpp.obj"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/HospitalManagement.dir/src/Servicio.cpp.obj -MF CMakeFiles\HospitalManagement.dir\src\Servicio.cpp.obj.d -o CMakeFiles\HospitalManagement.dir\src\Servicio.cpp.obj -c C:\Users\davud\Desktop\Pablo\Prueba_AB\Prueba_AB\src\Servicio.cpp
 
 CMakeFiles/HospitalManagement.dir/src/Servicio.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/HospitalManagement.dir/src/Servicio.cpp.i"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\davud\Desktop\Pablo\AB-Final\src\Servicio.cpp > CMakeFiles\HospitalManagement.dir\src\Servicio.cpp.i
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\davud\Desktop\Pablo\Prueba_AB\Prueba_AB\src\Servicio.cpp > CMakeFiles\HospitalManagement.dir\src\Servicio.cpp.i
 
 CMakeFiles/HospitalManagement.dir/src/Servicio.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/HospitalManagement.dir/src/Servicio.cpp.s"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\davud\Desktop\Pablo\AB-Final\src\Servicio.cpp -o CMakeFiles\HospitalManagement.dir\src\Servicio.cpp.s
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\davud\Desktop\Pablo\Prueba_AB\Prueba_AB\src\Servicio.cpp -o CMakeFiles\HospitalManagement.dir\src\Servicio.cpp.s
 
 CMakeFiles/HospitalManagement.dir/src/Paciente.cpp.obj: CMakeFiles/HospitalManagement.dir/flags.make
 CMakeFiles/HospitalManagement.dir/src/Paciente.cpp.obj: CMakeFiles/HospitalManagement.dir/includes_CXX.rsp
-CMakeFiles/HospitalManagement.dir/src/Paciente.cpp.obj: C:/Users/davud/Desktop/Pablo/AB-Final/src/Paciente.cpp
+CMakeFiles/HospitalManagement.dir/src/Paciente.cpp.obj: C:/Users/davud/Desktop/Pablo/Prueba_AB/Prueba_AB/src/Paciente.cpp
 CMakeFiles/HospitalManagement.dir/src/Paciente.cpp.obj: CMakeFiles/HospitalManagement.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\davud\Desktop\Pablo\AB-Final\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/HospitalManagement.dir/src/Paciente.cpp.obj"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/HospitalManagement.dir/src/Paciente.cpp.obj -MF CMakeFiles\HospitalManagement.dir\src\Paciente.cpp.obj.d -o CMakeFiles\HospitalManagement.dir\src\Paciente.cpp.obj -c C:\Users\davud\Desktop\Pablo\AB-Final\src\Paciente.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\davud\Desktop\Pablo\Prueba_AB\Prueba_AB\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/HospitalManagement.dir/src/Paciente.cpp.obj"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/HospitalManagement.dir/src/Paciente.cpp.obj -MF CMakeFiles\HospitalManagement.dir\src\Paciente.cpp.obj.d -o CMakeFiles\HospitalManagement.dir\src\Paciente.cpp.obj -c C:\Users\davud\Desktop\Pablo\Prueba_AB\Prueba_AB\src\Paciente.cpp
 
 CMakeFiles/HospitalManagement.dir/src/Paciente.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/HospitalManagement.dir/src/Paciente.cpp.i"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\davud\Desktop\Pablo\AB-Final\src\Paciente.cpp > CMakeFiles\HospitalManagement.dir\src\Paciente.cpp.i
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\davud\Desktop\Pablo\Prueba_AB\Prueba_AB\src\Paciente.cpp > CMakeFiles\HospitalManagement.dir\src\Paciente.cpp.i
 
 CMakeFiles/HospitalManagement.dir/src/Paciente.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/HospitalManagement.dir/src/Paciente.cpp.s"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\davud\Desktop\Pablo\AB-Final\src\Paciente.cpp -o CMakeFiles\HospitalManagement.dir\src\Paciente.cpp.s
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\davud\Desktop\Pablo\Prueba_AB\Prueba_AB\src\Paciente.cpp -o CMakeFiles\HospitalManagement.dir\src\Paciente.cpp.s
 
 CMakeFiles/HospitalManagement.dir/src/Medico.cpp.obj: CMakeFiles/HospitalManagement.dir/flags.make
 CMakeFiles/HospitalManagement.dir/src/Medico.cpp.obj: CMakeFiles/HospitalManagement.dir/includes_CXX.rsp
-CMakeFiles/HospitalManagement.dir/src/Medico.cpp.obj: C:/Users/davud/Desktop/Pablo/AB-Final/src/Medico.cpp
+CMakeFiles/HospitalManagement.dir/src/Medico.cpp.obj: C:/Users/davud/Desktop/Pablo/Prueba_AB/Prueba_AB/src/Medico.cpp
 CMakeFiles/HospitalManagement.dir/src/Medico.cpp.obj: CMakeFiles/HospitalManagement.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\davud\Desktop\Pablo\AB-Final\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/HospitalManagement.dir/src/Medico.cpp.obj"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/HospitalManagement.dir/src/Medico.cpp.obj -MF CMakeFiles\HospitalManagement.dir\src\Medico.cpp.obj.d -o CMakeFiles\HospitalManagement.dir\src\Medico.cpp.obj -c C:\Users\davud\Desktop\Pablo\AB-Final\src\Medico.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\davud\Desktop\Pablo\Prueba_AB\Prueba_AB\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/HospitalManagement.dir/src/Medico.cpp.obj"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/HospitalManagement.dir/src/Medico.cpp.obj -MF CMakeFiles\HospitalManagement.dir\src\Medico.cpp.obj.d -o CMakeFiles\HospitalManagement.dir\src\Medico.cpp.obj -c C:\Users\davud\Desktop\Pablo\Prueba_AB\Prueba_AB\src\Medico.cpp
 
 CMakeFiles/HospitalManagement.dir/src/Medico.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/HospitalManagement.dir/src/Medico.cpp.i"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\davud\Desktop\Pablo\AB-Final\src\Medico.cpp > CMakeFiles\HospitalManagement.dir\src\Medico.cpp.i
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\davud\Desktop\Pablo\Prueba_AB\Prueba_AB\src\Medico.cpp > CMakeFiles\HospitalManagement.dir\src\Medico.cpp.i
 
 CMakeFiles/HospitalManagement.dir/src/Medico.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/HospitalManagement.dir/src/Medico.cpp.s"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\davud\Desktop\Pablo\AB-Final\src\Medico.cpp -o CMakeFiles\HospitalManagement.dir\src\Medico.cpp.s
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\davud\Desktop\Pablo\Prueba_AB\Prueba_AB\src\Medico.cpp -o CMakeFiles\HospitalManagement.dir\src\Medico.cpp.s
 
 CMakeFiles/HospitalManagement.dir/src/CitaMedica.cpp.obj: CMakeFiles/HospitalManagement.dir/flags.make
 CMakeFiles/HospitalManagement.dir/src/CitaMedica.cpp.obj: CMakeFiles/HospitalManagement.dir/includes_CXX.rsp
-CMakeFiles/HospitalManagement.dir/src/CitaMedica.cpp.obj: C:/Users/davud/Desktop/Pablo/AB-Final/src/CitaMedica.cpp
+CMakeFiles/HospitalManagement.dir/src/CitaMedica.cpp.obj: C:/Users/davud/Desktop/Pablo/Prueba_AB/Prueba_AB/src/CitaMedica.cpp
 CMakeFiles/HospitalManagement.dir/src/CitaMedica.cpp.obj: CMakeFiles/HospitalManagement.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\davud\Desktop\Pablo\AB-Final\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/HospitalManagement.dir/src/CitaMedica.cpp.obj"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/HospitalManagement.dir/src/CitaMedica.cpp.obj -MF CMakeFiles\HospitalManagement.dir\src\CitaMedica.cpp.obj.d -o CMakeFiles\HospitalManagement.dir\src\CitaMedica.cpp.obj -c C:\Users\davud\Desktop\Pablo\AB-Final\src\CitaMedica.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\davud\Desktop\Pablo\Prueba_AB\Prueba_AB\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/HospitalManagement.dir/src/CitaMedica.cpp.obj"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/HospitalManagement.dir/src/CitaMedica.cpp.obj -MF CMakeFiles\HospitalManagement.dir\src\CitaMedica.cpp.obj.d -o CMakeFiles\HospitalManagement.dir\src\CitaMedica.cpp.obj -c C:\Users\davud\Desktop\Pablo\Prueba_AB\Prueba_AB\src\CitaMedica.cpp
 
 CMakeFiles/HospitalManagement.dir/src/CitaMedica.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/HospitalManagement.dir/src/CitaMedica.cpp.i"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\davud\Desktop\Pablo\AB-Final\src\CitaMedica.cpp > CMakeFiles\HospitalManagement.dir\src\CitaMedica.cpp.i
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\davud\Desktop\Pablo\Prueba_AB\Prueba_AB\src\CitaMedica.cpp > CMakeFiles\HospitalManagement.dir\src\CitaMedica.cpp.i
 
 CMakeFiles/HospitalManagement.dir/src/CitaMedica.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/HospitalManagement.dir/src/CitaMedica.cpp.s"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\davud\Desktop\Pablo\AB-Final\src\CitaMedica.cpp -o CMakeFiles\HospitalManagement.dir\src\CitaMedica.cpp.s
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\davud\Desktop\Pablo\Prueba_AB\Prueba_AB\src\CitaMedica.cpp -o CMakeFiles\HospitalManagement.dir\src\CitaMedica.cpp.s
 
 # Object files for target HospitalManagement
 HospitalManagement_OBJECTS = \
@@ -183,7 +183,7 @@ HospitalManagement.exe: CMakeFiles/HospitalManagement.dir/build.make
 HospitalManagement.exe: CMakeFiles/HospitalManagement.dir/linkLibs.rsp
 HospitalManagement.exe: CMakeFiles/HospitalManagement.dir/objects1.rsp
 HospitalManagement.exe: CMakeFiles/HospitalManagement.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\davud\Desktop\Pablo\AB-Final\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable HospitalManagement.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\davud\Desktop\Pablo\Prueba_AB\Prueba_AB\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable HospitalManagement.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\HospitalManagement.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -195,6 +195,6 @@ CMakeFiles/HospitalManagement.dir/clean:
 .PHONY : CMakeFiles/HospitalManagement.dir/clean
 
 CMakeFiles/HospitalManagement.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\Users\davud\Desktop\Pablo\AB-Final C:\Users\davud\Desktop\Pablo\AB-Final C:\Users\davud\Desktop\Pablo\AB-Final\build C:\Users\davud\Desktop\Pablo\AB-Final\build C:\Users\davud\Desktop\Pablo\AB-Final\build\CMakeFiles\HospitalManagement.dir\DependInfo.cmake "--color=$(COLOR)"
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\Users\davud\Desktop\Pablo\Prueba_AB\Prueba_AB C:\Users\davud\Desktop\Pablo\Prueba_AB\Prueba_AB C:\Users\davud\Desktop\Pablo\Prueba_AB\Prueba_AB\build C:\Users\davud\Desktop\Pablo\Prueba_AB\Prueba_AB\build C:\Users\davud\Desktop\Pablo\Prueba_AB\Prueba_AB\build\CMakeFiles\HospitalManagement.dir\DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/HospitalManagement.dir/depend
 

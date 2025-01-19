@@ -1,9 +1,18 @@
 #include "../include/Paciente.hpp"
+#include "../include/Medico.hpp"
+#include "../include/Servicio.hpp"
 
 Paciente::Paciente(int id, const std::string &nombre, int edad, const std::string &telefono)
     : id(id), nombre(nombre), edad(edad), hospitalizado(false), telefono(telefono), medicoCabecera("") {}
 
 int Paciente::getId() const { return id; }
+
+
+void Paciente::asignarMedicoCabecera(Medico* medico) {
+    if (medico) {
+        medicoCabecera = std::to_string(medico->getId()); // Guarda solo el ID del médico
+    }
+}
 
 void Paciente::mostrarDetalles() const {
     std::cout << "ID: " << id << "\n"
@@ -17,6 +26,7 @@ void Paciente::mostrarDetalles() const {
     std::cout << "Médico de cabecera: " << (medicoCabecera.empty() ? "Ninguno" : medicoCabecera) << "\n";
     std::cout << "Servicios asignados:\n";
     for (const auto &servicio : serviciosAsignados) {
+        std::cout << "Servicio ID: " << servicio.getId() << ", Nombre: " << servicio.getNombre() << std::endl;
         servicio.mostrarDetalles();
     }
 }
@@ -26,13 +36,9 @@ void Paciente::ingresarPaciente(const std::string &motivo) {
     motivoIngreso = motivo;
 }
 
-void Paciente::asignarMedicoCabecera(const std::string &medico) {
-    medicoCabecera = medico;
-}
 
 void Paciente::asignarServicio(const Servicio &servicio) {
-    serviciosAsignados.push_back(servicio);
-    std::cout << "Servicio asignado correctamente al paciente.\n";
+    serviciosAsignados.push_back(servicio); 
 }
 
 void Paciente::guardarEnArchivo(const std::string &archivo) const {
@@ -51,10 +57,10 @@ void Paciente::guardarEnArchivo(const std::string &archivo) const {
     }
     file << "Médico de cabecera: " << ( medicoCabecera.empty() ? "Ninguno" : medicoCabecera) << "\n";
 
-    // Guardar los servicios asignados
+    // Guarda los servicios asignados
     file << "Servicios: ";
     for (const auto &servicio : serviciosAsignados) {
-        file << servicio.getId() << " "; // Guarda solo los IDs de los servicios
+        file << servicio.getId() << " "; // Guarda solamente los Ids de los servicios
     }
     file << "\n\n";
 }
@@ -71,9 +77,9 @@ void Paciente::eliminarPacienteEnArchivo(const std::string &archivo) const {
     while (getline(fileIn, linea)) {
         if (linea.find("Paciente " + std::to_string(id)) != std::string::npos) {
             encontrado = true;
-            for (int i = 0; i < 6; ++i) // Saltar las siguientes líneas del paciente
+            for (int i = 0; i < 6; ++i) 
                 getline(fileIn, linea);
-            continue; // No escribir este paciente en el archivo temporal
+            continue; // No escribe este paciente en el archivo txt
         }
         fileOut << linea << '\n';
     }
@@ -116,9 +122,9 @@ void Paciente::modificarPacienteEnArchivo(const std::string &archivo) const {
             fileOut << "Nombre: " << nuevoNombre << '\n';
             fileOut << "Edad: " << nuevaEdad << '\n';
             fileOut << "Teléfono: " << nuevoTelefono << '\n';
-            getline(fileIn, linea); // Saltar línea de nombre original
-            getline(fileIn, linea); // Saltar línea de edad original
-            getline(fileIn, linea); // Saltar línea de teléfono original
+            getline(fileIn, linea); 
+            getline(fileIn, linea); 
+            getline(fileIn, linea); 
         } else {
             fileOut << linea << '\n';
         }

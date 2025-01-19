@@ -1,7 +1,7 @@
 CMakeFiles/HospitalManagement.dir/src/CitaMedica.cpp.obj: \
- C:\Users\davud\Desktop\Pablo\AB-Final\src\CitaMedica.cpp \
- C:/Users/davud/Desktop/Pablo/AB-Final/include/CitaMedica.hpp \
- C:/Users/davud/Desktop/Pablo/AB-Final/include/Funciones.hpp \
+ C:\Users\davud\Desktop\Pablo\Prueba_AB\Prueba_AB\src\CitaMedica.cpp \
+ C:/Users/davud/Desktop/Pablo/Prueba_AB/Prueba_AB/include/CitaMedica.hpp \
+ C:/Users/davud/Desktop/Pablo/Prueba_AB/Prueba_AB/include/Funciones.hpp \
  C:/msys64/ucrt64/include/c++/13.2.0/string \
  C:/msys64/ucrt64/include/c++/13.2.0/bits/requires_hosted.h \
  C:/msys64/ucrt64/include/c++/13.2.0/x86_64-w64-mingw32/bits/c++config.h \
@@ -135,8 +135,11 @@ CMakeFiles/HospitalManagement.dir/src/CitaMedica.cpp.obj: \
  C:/msys64/ucrt64/include/c++/13.2.0/bits/ostream.tcc \
  C:/msys64/ucrt64/include/c++/13.2.0/istream \
  C:/msys64/ucrt64/include/c++/13.2.0/bits/istream.tcc \
+ C:/Users/davud/Desktop/Pablo/Prueba_AB/Prueba_AB/include/Paciente.hpp \
+ C:/Users/davud/Desktop/Pablo/Prueba_AB/Prueba_AB/include/Servicio.hpp \
  C:/msys64/ucrt64/include/c++/13.2.0/fstream \
  C:/msys64/ucrt64/include/c++/13.2.0/bits/codecvt.h \
  C:/msys64/ucrt64/include/c++/13.2.0/x86_64-w64-mingw32/bits/basic_file.h \
  C:/msys64/ucrt64/include/c++/13.2.0/x86_64-w64-mingw32/bits/c++io.h \
- C:/msys64/ucrt64/include/c++/13.2.0/bits/fstream.tcc
+ C:/msys64/ucrt64/include/c++/13.2.0/bits/fstream.tcc \
+ C:/Users/davud/Desktop/Pablo/Prueba_AB/Prueba_AB/include/Medico.hpp

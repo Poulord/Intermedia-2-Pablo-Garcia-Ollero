@@ -1,0 +1,6 @@
+Cita 1
+Fecha y Hora: El 4 de Enero de 2025 a las 12 pm
+Prioridad: Media
+ID Paciente: 1
+ID Médico: 1
+

@@ -24,4 +24,4 @@ public:
     void modificarMedicoEnArchivo(const std::string &archivo) const;
 };
 
-#endif // MEDICO_HPP
+#endif 
